@@ -8,6 +8,7 @@ public class NeobankProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NeobankProjectApplication.class, args);
+		System.out.println("this is testing purpose i am ritik");
 	}
 
 }
