@@ -9,7 +9,7 @@ public class NeobankProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(NeobankProjectApplication.class, args);
 		
-		System.out.println("Hello Poonam ji how are you tum kaise ho ");
+		System.out.println("Neobank Project is running...");
 	}
 
 }
