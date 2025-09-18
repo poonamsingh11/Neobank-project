@@ -1,7 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Components
 import Navbar from "./components/Navbar";
+
+// Pages
 import DashBoard from "./pages/DashBoard";
+
+// Loan Pages
 import Loan from "./pages/LOAN/Loan";
 import LoanApplicationForm from "./pages/LOAN/LoanApplicationForm";
 import PersonalLoanForm from "./pages/LOAN/PersonalLoanForm";
@@ -12,21 +18,28 @@ import GoldLoanForm from "./pages/LOAN/GoldLoanForm";
 import BusinessLoanForm from "./pages/LOAN/BusinessLoanForm";
 import ViewLoanStatement from "./pages/LOAN/ViewLoanStatement";
 
+// Services & Deposits Pages
+import Services from "./pages/Services";
+import DepositsPage from "./pages/Deposits/DepositsPage";
+import FixedDepositForm from "./pages/Deposits/FixedDepositForm";
+import RDPage from "./pages/Deposits/RDPage";
+import FdCalculator from "./pages/Deposits/FdCalculator";
+import TaxSaverFD from "./pages/Deposits/TaxSaverFD";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
     <Router>
+      {/* Navbar हर page पर common */}
       <Navbar />
       <Routes>
-        {/* Main Dashboard */}
+        {/* Home/Dashboard */}
         <Route path="/" element={<DashBoard />} />
 
-        {/* Loan Overview & Generic Form */}
+        {/* Loan Pages */}
         <Route path="/loan" element={<Loan />} />
         <Route path="/apply-loan" element={<LoanApplicationForm />} />
-
-        {/* Individual Loan Forms */}
         <Route path="/personal-loan" element={<PersonalLoanForm />} />
         <Route path="/home-loan" element={<HomeLoanForm />} />
         <Route path="/car-loan" element={<CarLoanForm />} />
@@ -34,6 +47,20 @@ const App = () => {
         <Route path="/gold-loan" element={<GoldLoanForm />} />
         <Route path="/business-loan" element={<BusinessLoanForm />} />
         <Route path="/view-loan-statement" element={<ViewLoanStatement />} />
+
+        {/* Services */}
+        <Route path="/Services" element={<Services />} />
+
+        {/* Deposits Main Page */}
+        <Route path="/deposit" element={<DepositsPage />} />
+
+        {/* Fixed Deposit */}
+        <Route path="/fd-calculator" element={<FdCalculator />} />
+        <Route path="/fixed-deposit" element={<FixedDepositForm />} />
+
+        {/* Recurring Deposit */}
+        <Route path="/recurring-deposit" element={<RDPage />} />
+        <Route path="/tax-saver-fd11" element={<TaxSaverFD />} />
       </Routes>
     </Router>
   );

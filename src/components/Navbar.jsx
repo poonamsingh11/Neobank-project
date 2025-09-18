@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Bell, Banknote, User, CreditCard, DollarSign,
   Repeat, TrendingUp, Settings, AlertCircle, LayoutDashboard, Menu
@@ -9,8 +8,9 @@ import neoBankLogo from "../assets/neobank-logo.png";
 import { useState } from "react";
 
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [secondaryOpen, setSecondaryOpen] = useState(false);
+
   const menuItems = [
     { name: "Dashboard", icon: <LayoutDashboard size={18} />, path: "/" },
     { name: "My Account", icon: <User size={18} />, path: "/myaccount" },
@@ -19,32 +19,27 @@ const Navbar = () => {
     { name: "Money Transfer", icon: <Repeat size={18} />, path: "/money-transfer" },
     { name: "Investment", icon: <TrendingUp size={18} />, path: "/investment" },
     { name: "Cards", icon: <CreditCard size={18} />, path: "/cards" },
-    { name: "Service", icon: <Settings size={18} />, path: "/service" },
+    { name: "Service", icon: <Settings size={18} />, path: "/Services" },
     { name: "Setting", icon: <Settings size={18} />, path: "/setting" },
     { name: "Complaint", icon: <AlertCircle size={18} />, path: "/complaint" },
   ];
 
   return (
     <>
-
+      {/* Main Navbar */}
       <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
         <div className="container-fluid">
-
           <Link
             to="/homepage"
             className="navbar-brand d-flex align-items-center fw-bold text-danger"
-
           >
-
-            <div style={{ height: '40px', width: '40px', }}>
+            <div style={{ height: '40px', width: '40px' }}>
               <img
                 src={neoBankLogo}
                 alt="NeoBank Logo"
                 className="me-2"
               />
             </div>
-
-
             <span className="ms-3 fw-bold fs-4 text-uppercase" style={{ color: "#950606" }}>
               NeoBank John
             </span>
@@ -58,9 +53,7 @@ const Navbar = () => {
             <Menu size={24} />
           </button>
 
-
-
-          <form className="d-none d-md-flex flex-grow-1 mx-md-3 ">
+          <form className="d-none d-md-flex flex-grow-1 mx-md-3">
             <input
               type="text"
               className="form-control"
@@ -69,16 +62,13 @@ const Navbar = () => {
             />
           </form>
 
-
           <div className="d-flex align-items-center ms-auto">
-
             <button className="btn position-relative me-3">
               <Bell size={22} />
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 3
               </span>
             </button>
-
 
             <div className="d-flex align-items-center">
               <div
@@ -87,21 +77,16 @@ const Navbar = () => {
               >
                 JD
               </div>
-              <span className="fw-semibold text-dark">John Doe</span>
+              <span className="fw-semibold text-dark me-2">John Doe</span>
             </div>
-
           </div>
         </div>
-
       </nav>
 
-
+      {/* Secondary Navbar (Menu Items) */}
       <div className="bg-light pt-2 shadow-sm border-top mt-3">
-       
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm border-top border-bottom border-dark mt-5">
           <div className="container-fluid">
-
-      
             <button
               className="navbar-toggler"
               type="button"
@@ -110,23 +95,21 @@ const Navbar = () => {
               <Menu size={22} />
             </button>
 
-       
-          <div className={`navbar-collapse ${secondaryOpen ? "show" : ""}`} id="secondaryNav">
-
+            <div className={`navbar-collapse ${secondaryOpen ? "show" : ""}`} id="secondaryNav">
               <ul className="navbar-nav mx-auto flex-wrap">
                 {menuItems.map((item) => (
                   <li className="nav-item" key={item.name}>
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
-                        `nav-link d-flex align-items-center fw-bold px-3 py-2 rounded `
+                        `nav-link d-flex align-items-center fw-bold px-3 py-2 rounded`
                       }
                       style={({ isActive }) => ({
                         backgroundColor: isActive ? "#950606" : "transparent",
                         color: isActive ? "white" : "#333",
                         transition: "all 0.3s ease",
                       })}
-                      onClick={() => setSecondaryOpen(false)} // close on click
+                      onClick={() => setSecondaryOpen(false)}
                     >
                       <span className="me-2">{item.icon}</span>
                       {item.name}
@@ -135,24 +118,24 @@ const Navbar = () => {
                 ))}
               </ul>
             </div>
-
           </div>
         </nav>
-
       </div>
 
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="bg-light shadow-lg border-top d-lg-none"
           style={{
             position: 'absolute',
-            top: '70px', 
+            top: '70px',
             left: 0,
             right: 0,
             zIndex: 9999,
             borderRadius: '0 0 10px 10px',
             overflow: 'hidden',
             animation: 'slideDown 0.3s ease'
-          }}>
+          }}
+        >
           <div className="container-fluid py-3">
             <ul className="nav flex-column">
               {menuItems.map((item) => (
@@ -175,23 +158,20 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          </div>
 
-         
-          <style>
-            {`
-        @keyframes slideDown {
-          0% { transform: translateY(-20px); opacity: 0; }
-          100% { transform: translateY(0); opacity: 1; }
-        }
-      `}
-          </style>
+            <style>
+              {`
+                @keyframes slideDown {
+                  0% { transform: translateY(-20px); opacity: 0; }
+                  100% { transform: translateY(0); opacity: 1; }
+                }
+              `}
+            </style>
+          </div>
         </div>
       )}
-
     </>
   );
 };
 
 export default Navbar;
-
