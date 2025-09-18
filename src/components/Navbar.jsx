@@ -1,7 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import {
-  Bell, Banknote, User, CreditCard, DollarSign,
-  Repeat, TrendingUp, Settings, AlertCircle, LayoutDashboard, Menu
+  Bell,
+  Banknote,
+  User,
+  CreditCard,
+  DollarSign,
+  Repeat,
+  TrendingUp,
+  Settings,
+  AlertCircle,
+  LayoutDashboard,
+  Menu,
 } from "lucide-react";
 
 import neoBankLogo from "../assets/neobank-logo.png";
@@ -13,7 +22,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Dashboard", icon: <LayoutDashboard size={18} />, path: "/" },
-    { name: "My Account", icon: <User size={18} />, path: "/myaccount" },
+    { name: "My Account", icon: <User size={18} />, path: "/myAccount" },
     { name: "Deposit", icon: <CreditCard size={18} />, path: "/deposit" },
     { name: "Loan", icon: <DollarSign size={18} />, path: "/loan" },
     { name: "Money Transfer", icon: <Repeat size={18} />, path: "/money-transfer" },
@@ -27,24 +36,22 @@ const Navbar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
+      <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
         <div className="container-fluid">
           <Link
             to="/homepage"
             className="navbar-brand d-flex align-items-center fw-bold text-danger"
+            style={{ width: "300px" }}
           >
-            <div style={{ height: '40px', width: '40px' }}>
-              <img
-                src={neoBankLogo}
-                alt="NeoBank Logo"
-                className="me-2"
-              />
+            <div style={{ height: "40px", width: "40px", marginLeft: "20px" }}>
+              <img src={neoBankLogo} alt="NeoBank Logo" className="me-2" />
             </div>
             <span className="ms-3 fw-bold fs-4 text-uppercase" style={{ color: "#950606" }}>
               NeoBank John
             </span>
           </Link>
 
+          {/* Mobile toggle */}
           <button
             className="navbar-toggler"
             type="button"
@@ -53,15 +60,17 @@ const Navbar = () => {
             <Menu size={24} />
           </button>
 
+          {/* Search */}
           <form className="d-none d-md-flex flex-grow-1 mx-md-3">
             <input
               type="text"
               className="form-control"
-              style={{ maxWidth: "500px", marginLeft: '30px' }}
+              style={{ maxWidth: "500px", marginLeft: "30px" }}
               placeholder="Search users, transactions..."
             />
           </form>
 
+          {/* Right side */}
           <div className="d-flex align-items-center ms-auto">
             <button className="btn position-relative me-3">
               <Bell size={22} />
@@ -77,63 +86,51 @@ const Navbar = () => {
               >
                 JD
               </div>
-              <span className="fw-semibold text-dark me-2">John Doe</span>
+              <span className="fw-semibold text-dark">John Doe</span>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Secondary Navbar (Menu Items) */}
-      <div className="bg-light pt-2 shadow-sm border-top mt-3">
-        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm border-top border-bottom border-dark mt-5">
-          <div className="container-fluid">
-            <button
-              className="navbar-toggler"
-              type="button"
-              onClick={() => setSecondaryOpen(!secondaryOpen)}
-            >
-              <Menu size={22} />
-            </button>
-
-            <div className={`navbar-collapse ${secondaryOpen ? "show" : ""}`} id="secondaryNav">
-              <ul className="navbar-nav mx-auto flex-wrap">
-                {menuItems.map((item) => (
-                  <li className="nav-item" key={item.name}>
-                    <NavLink
-                      to={item.path}
-                      className={({ isActive }) =>
-                        `nav-link d-flex align-items-center fw-bold px-3 py-2 rounded`
-                      }
-                      style={({ isActive }) => ({
-                        backgroundColor: isActive ? "#950606" : "transparent",
-                        color: isActive ? "white" : "#333",
-                        transition: "all 0.3s ease",
-                      })}
-                      onClick={() => setSecondaryOpen(false)}
-                    >
-                      <span className="me-2">{item.icon}</span>
-                      {item.name}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </nav>
+      {/* Secondary Navbar */}
+      <div className="bg-light pt-2 shadow-sm border-top mt-3 d-none d-lg-block">
+        <div className="container-fluid">
+          <ul className="nav justify-content-center">
+            {menuItems.map((item) => (
+              <li className="nav-item" key={item.name}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `nav-link d-flex align-items-center fw-semibold px-4 py-3 me-2 rounded`
+                  }
+                  style={({ isActive }) => ({
+                    backgroundColor: isActive ? "#950606" : "transparent",
+                    color: isActive ? "#fff" : "#333",
+                    transition: "all 0.3s ease",
+                  })}
+                >
+                  <span className="me-2">{item.icon}</span>
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="bg-light shadow-lg border-top d-lg-none"
+        <div
+          className="bg-light shadow-lg border-top d-lg-none"
           style={{
-            position: 'absolute',
-            top: '70px',
+            position: "absolute",
+            top: "70px",
             left: 0,
             right: 0,
             zIndex: 9999,
-            borderRadius: '0 0 10px 10px',
-            overflow: 'hidden',
-            animation: 'slideDown 0.3s ease'
+            borderRadius: "0 0 10px 10px",
+            overflow: "hidden",
+            animation: "slideDown 0.3s ease",
           }}
         >
           <div className="container-fluid py-3">
