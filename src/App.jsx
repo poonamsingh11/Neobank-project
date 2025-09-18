@@ -6,14 +6,27 @@ import Navbar from "./components/Navbar";
 
 // Pages
 import DashBoard from "./pages/DashBoard";
-import Services from "./pages/Services"; // Services_Rameshwar branch
-import DepositsPage from "./pages/Deposits/DepositsPage"; // main branch
+
+// Loan Pages
+import Loan from "./pages/LOAN/Loan";
+import LoanApplicationForm from "./pages/LOAN/LoanApplicationForm";
+import PersonalLoanForm from "./pages/LOAN/PersonalLoanForm";
+import HomeLoanForm from "./pages/LOAN/HomeLoanForm";
+import CarLoanForm from "./pages/LOAN/CarLoanForm";
+import EducationLoanForm from "./pages/LOAN/EducationLoanForm";
+import GoldLoanForm from "./pages/LOAN/GoldLoanForm";
+import BusinessLoanForm from "./pages/LOAN/BusinessLoanForm";
+import ViewLoanStatement from "./pages/LOAN/ViewLoanStatement";
+
+// Services & Deposits Pages
+import Services from "./pages/Services";
+import DepositsPage from "./pages/Deposits/DepositsPage";
 import FixedDepositForm from "./pages/Deposits/FixedDepositForm";
 import RDPage from "./pages/Deposits/RDPage";
 import FdCalculator from "./pages/Deposits/FdCalculator";
 import TaxSaverFD from "./pages/Deposits/TaxSaverFD";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   return (
@@ -23,6 +36,17 @@ const App = () => {
       <Routes>
         {/* Home/Dashboard */}
         <Route path="/" element={<DashBoard />} />
+
+        {/* Loan Pages */}
+        <Route path="/loan" element={<Loan />} />
+        <Route path="/apply-loan" element={<LoanApplicationForm />} />
+        <Route path="/personal-loan" element={<PersonalLoanForm />} />
+        <Route path="/home-loan" element={<HomeLoanForm />} />
+        <Route path="/car-loan" element={<CarLoanForm />} />
+        <Route path="/education-loan" element={<EducationLoanForm />} />
+        <Route path="/gold-loan" element={<GoldLoanForm />} />
+        <Route path="/business-loan" element={<BusinessLoanForm />} />
+        <Route path="/view-loan-statement" element={<ViewLoanStatement />} />
 
         {/* Services */}
         <Route path="/Services" element={<Services />} />

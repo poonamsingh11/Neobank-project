@@ -102,7 +102,7 @@ const Navbar = () => {
                     <NavLink
                       to={item.path}
                       className={({ isActive }) =>
-                        `nav-link d-flex align-items-center fw-bold px-3 py-2 rounded `
+                        `nav-link d-flex align-items-center fw-bold px-3 py-2 rounded`
                       }
                       style={({ isActive }) => ({
                         backgroundColor: isActive ? "#950606" : "transparent",
@@ -134,7 +134,8 @@ const Navbar = () => {
             borderRadius: '0 0 10px 10px',
             overflow: 'hidden',
             animation: 'slideDown 0.3s ease'
-          }}>
+          }}
+        >
           <div className="container-fluid py-3">
             <ul className="nav flex-column">
               {menuItems.map((item) => (
