@@ -4,7 +4,7 @@ const DashBoard = () => {
       {/* Welcome Card */}
       <div className="bg-white rounded-lg shadow p-6 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold">Welcome Back, Sonali Jakapure!</h1>
+          <h1 className="text-2xl font-bold">Welcome Back, Poonam Singh Rajput!</h1>
           <p className="text-gray-600">Here's your financial overview for today</p>
         </div>
         <div className="text-right">
