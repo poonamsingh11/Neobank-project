@@ -6,23 +6,26 @@ import Navbar from "./components/Navbar";
 
 // Pages
 import DashBoard from "./pages/DashBoard";
-import DepositsPage from "./pages/Deposits/DepositsPage";
+import Services from "./pages/Services"; // Services_Rameshwar branch
+import DepositsPage from "./pages/Deposits/DepositsPage"; // main branch
 import FixedDepositForm from "./pages/Deposits/FixedDepositForm";
 import RDPage from "./pages/Deposits/RDPage";
 import FdCalculator from "./pages/Deposits/FdCalculator";
 import TaxSaverFD from "./pages/Deposits/TaxSaverFD";
 
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   return (
     <Router>
-      {/* ✅ Navbar हर page पर common */}
+      {/* Navbar हर page पर common */}
       <Navbar />
       <Routes>
         {/* Home/Dashboard */}
         <Route path="/" element={<DashBoard />} />
+
+        {/* Services */}
+        <Route path="/Services" element={<Services />} />
 
         {/* Deposits Main Page */}
         <Route path="/deposit" element={<DepositsPage />} />
