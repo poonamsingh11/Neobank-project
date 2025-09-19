@@ -34,6 +34,10 @@ import RDPage from "./pages/Deposits/RDPage";
 import FdCalculator from "./pages/Deposits/FdCalculator";
 import TaxSaverFD from "./pages/Deposits/TaxSaverFD";
 
+// Investment Pages
+import Investment from "./pages/Investment/Investment";
+import AddGoal from "./pages/Investment/AddGoal";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
@@ -67,12 +71,16 @@ const App = () => {
         {/* Services */}
         <Route path="/Services" element={<Services />} />
 
-        {/* Deposits Main Page */}
+        {/* Deposits */}
         <Route path="/deposit" element={<DepositsPage />} />
         <Route path="/fd-calculator" element={<FdCalculator />} />
         <Route path="/fixed-deposit" element={<FixedDepositForm />} />
         <Route path="/recurring-deposit" element={<RDPage />} />
         <Route path="/tax-saver-fd11" element={<TaxSaverFD />} />
+
+        {/* Investment */}
+        <Route path="/investment" element={<Investment />} />
+        <Route path="/add-goal" element={<AddGoal />} />
       </Routes>
     </Router>
   );
