@@ -5,7 +5,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 // Dashboard
-import DashBoard from "./pages/DashBoard";
+import DashBoard from "./pages/dashboard/DashBoard";
+import HomePage from "./pages/dashboard/HomePage";
+import AddMoney from "./pages/dashboard/AddMoney";
+import SendMoney from "./pages/dashboard/SendMoney";
+import PayBills from "./pages/dashboard/PayBills";
+import Investments from "./pages/dashboard/Investments";
 
 // MyAccounts Pages
 import MyAccounts from "./pages/MyAccount/MyAccounts";
@@ -46,8 +51,13 @@ const App = () => {
       {/* Navbar हर page पर common */}
       <Navbar />
       <Routes>
-        {/* Home/Dashboard */}
+        {/* Dashboard2 pages */}
         <Route path="/" element={<DashBoard />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/add-money" element={<AddMoney />} />
+        <Route path="/send-money" element={<SendMoney />} />
+        <Route path="/pay-bills" element={<PayBills />} />
+        <Route path="/investments" element={<Investments />} />
 
         {/* My Accounts */}
         <Route path="/myAccount" element={<MyAccounts />} />
@@ -69,7 +79,7 @@ const App = () => {
         <Route path="/view-loan-statement" element={<ViewLoanStatement />} />
 
         {/* Services */}
-        <Route path="/Services" element={<Services />} />
+        <Route path="/services" element={<Services />} />
 
         {/* Deposits */}
         <Route path="/deposit" element={<DepositsPage />} />
