@@ -1,0 +1,77 @@
+.header-card {
+  background: linear-gradient(90deg, rgba(3,169,244,0.08), rgba(102,16,242,0.06));
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.category-row {
+  border: 1px solid rgba(0,0,0,0.04);
+  background: linear-gradient(180deg, #fff, #fbfbff);
+}
+
+.cat-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(6,182,212,0.08));
+  font-size: 20px;
+  color: #333;
+  box-shadow: 0 6px 18px rgba(99,102,241,0.06);
+}
+
+.actions-card {
+  border-radius: 12px;
+}
+
+@media (max-width: 767px) {
+  .header-card {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+/* Left border accent */
+.border-start-accent {
+  border-left: 5px solid #900603; /* Bank-style maroon */
+}
+
+/* Channel rows with background color */
+.channel-row {
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+/* Individual channel colors */
+.bg-email {
+  background-color: #007bff; /* Blue */
+}
+.bg-sms {
+  background-color: #28a745; /* Green */
+}
+.bg-push {
+  background-color: #fd7e14; /* Orange */
+}
+
+/* Label text color */
+.channel-label {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Switch colors */
+.form-check-input.email-switch:checked {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.form-check-input.sms-switch:checked {
+  background-color: #1c7c31;
+  border-color: #1c7c31;
+}
+.form-check-input.push-switch:checked {
+  background-color: #c7621f;
+  border-color: #e55a00;
+}
+
+/* Hover effect */
+.channel-row:hover {
+  filter: brightness(1.1);
+}

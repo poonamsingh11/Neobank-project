@@ -1,0 +1,183 @@
+/* NewCardForm.css - Theme matched to Navbar colors */
+
+/* Container */
+.cards-container {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background-color: #ffffff; /* same as navbar background */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  /* Section title */
+  .cards-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #950606; /* match navbar brand color */
+    font-weight: 600;
+  }
+  
+  /* Card option buttons */
+  .card-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .apply-btn {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+  }
+  
+  .apply-btn:first-child {
+    background-color: #950606; /* match navbar active color */
+  }
+  
+  .apply-btn:first-child:hover {
+    background-color: #700404;
+    transform: translateY(-2px);
+  }
+  
+  .apply-btn:last-child {
+    background-color: #17a2b8; /* secondary accent */
+  }
+  
+  .apply-btn:last-child:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+  }
+  
+  /* Form styling */
+  .apply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 0.4s ease-in;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #f8f9fa; /* subtle light background */
+    border-left: 6px solid #950606; /* accent for form */
+  }
+  
+  /* Form title */
+  .apply-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #950606;
+    font-weight: 500;
+  }
+  
+  /* Form groups */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #950606;
+    box-shadow: 0 0 6px rgba(149, 6, 6, 0.2);
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    min-height: 70px;
+  }
+  
+  /* Form buttons */
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .cancel-btn,
+  .submit-btn {
+    padding: 12px 22px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .cancel-btn {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-1px);
+  }
+  
+  .submit-btn {
+    background-color: #950606;
+    color: #fff;
+  }
+  
+  .submit-btn:hover {
+    background-color: #700404;
+    transform: translateY(-1px);
+  }
+  
+  /* Responsive */
+  @media (max-width: 650px) {
+    .card-options {
+      flex-direction: column;
+    }
+  
+    .form-buttons {
+      flex-direction: column-reverse;
+      align-items: stretch;
+    }
+  
+    .cancel-btn,
+    .submit-btn {
+      width: 100%;
+    }
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

@@ -27,10 +27,10 @@ const Navbar = () => {
     { name: "Loan", icon: <DollarSign size={18} />, path: "/loan" },
     { name: "Money Transfer", icon: <Repeat size={18} />, path: "/money-transfer" },
     { name: "Investment", icon: <TrendingUp size={18} />, path: "/investment" },
-    { name: "Cards", icon: <CreditCard size={18} />, path: "/cards" },
-    { name: "Service", icon: <Settings size={18} />, path: "/service" },
+    { name: "cards", icon: <CreditCard size={18} />, path: "/cards" },
+    { name: "Services", icon: <Settings size={18} />, path: "/services" },
     { name: "Setting", icon: <Settings size={18} />, path: "/setting" },
-    { name: "Complaint", icon: <AlertCircle size={18} />, path: "/complaint" },
+    { name: "Complaint", icon: <AlertCircle size={18} />, path: "/complaintfeedback" },
   ];
 
   return (

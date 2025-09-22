@@ -1,14 +1,16 @@
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
-import Navbar from "./components/Navbar";
+import Navbar from "./component/Navbar";
+
 
 // Dashboard
 import DashBoard from "./pages/dashboard/DashBoard";
 import HomePage from "./pages/dashboard/HomePage";
 import AddMoney from "./pages/dashboard/AddMoney";
-import SendMoney from "./pages/dashboard/SendMoney";
+import SendMoneyDashboard from "./pages/dashboard/SendMoney";
 import PayBills from "./pages/dashboard/PayBills";
 import Investments from "./pages/dashboard/Investments";
 
@@ -43,19 +45,55 @@ import TaxSaverFD from "./pages/Deposits/TaxSaverFD";
 import Investment from "./pages/Investment/Investment";
 import AddGoal from "./pages/Investment/AddGoal";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+// Settings
+import Setting from "./pages/SETTINGS/setting";
+import NotificationsPage from "./pages/SETTINGS/NotificationsPage";
+import GeneralSettings from "./pages/SETTINGS/GeneralSettings";
+import PersonalDetails from "./pages/SETTINGS/PersonalDetails";
 
-const App = () => {
+// Money-transfer
+import MoneyTransfer from "./pages/Money-Transfer/MoneyTransfer";
+import DomesticTransfer from "./pages/Money-Transfer/DomesticTransfer";
+import SendMoneyTransfer from "./pages/Money-Transfer/SendMoney";
+import Kyc from "./pages/Money-Transfer/Kyc";
+import Bills from "./pages/Money-Transfer/Bills";
+import History from "./pages/Money-Transfer/History";
+import NEFTFormPage from "./pages/Money-Transfer/NEFTFormPage";
+import RtgsForm from "./pages/Money-Transfer/RtgsForm";
+import ImpsForm from "./pages/Money-Transfer/ImpsForm";
+import InternationalTransferPage from "./pages/Money-Transfer/InternationalTransferPage";
+
+// Cards
+import ClientCard from "./pages/cards/ClientCard";
+import ApplyNewCard from "./pages/cards/ApplyNewCard";
+
+// Complaint & Feedback
+import ComplaintFeedback from "./pages/Complaint & Feedback/ComplaintFeedback";
+import LiveChat from "./pages/Complaint & Feedback/LiveChat";
+import EmailSupport from "./pages/Complaint & Feedback/EmailSupport";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import SplashScreen from "./component/SplashScreen";
+const App=()=>{
+  const [showSplash, setShowSplash] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, []);
+  if (showSplash) {
+    return <SplashScreen />;
+  }
   return (
     <Router>
-      {/* Navbar हर page पर common */}
       <Navbar />
       <Routes>
-        {/* Dashboard2 pages */}
+        {/* Dashboard */}
         <Route path="/" element={<DashBoard />} />
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/add-money" element={<AddMoney />} />
-        <Route path="/send-money" element={<SendMoney />} />
+        <Route path="/send-money" element={<SendMoneyDashboard />} />
         <Route path="/pay-bills" element={<PayBills />} />
         <Route path="/investments" element={<Investments />} />
 
@@ -80,6 +118,7 @@ const App = () => {
 
         {/* Services */}
         <Route path="/services" element={<Services />} />
+        
 
         {/* Deposits */}
         <Route path="/deposit" element={<DepositsPage />} />
@@ -91,6 +130,34 @@ const App = () => {
         {/* Investment */}
         <Route path="/investment" element={<Investment />} />
         <Route path="/add-goal" element={<AddGoal />} />
+
+        {/* Settings */}
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/notifications" element={<NotificationsPage />} />
+        <Route path="/GeneralSettings" element={<GeneralSettings />} />
+        <Route path="/personal-details" element={<PersonalDetails />} />
+      
+
+        {/* Money-transfer */}
+        <Route path="/money-transfer" element={<MoneyTransfer />} />
+        <Route path="/money-transfer/send" element={<SendMoneyTransfer />} />
+        <Route path="/kyc" element={<Kyc />} />
+        <Route path="/pay-bills-transfer" element={<Bills />} />
+        <Route path="/history" element={<History />} /> 
+        <Route path="/neft" element={<NEFTFormPage />} />
+        <Route path="/rtgs" element={<RtgsForm />} />
+        <Route path="/imps" element={<ImpsForm />} />
+        <Route path="/domestic-transfers" element={<DomesticTransfer />} />
+        <Route path="/international-transfer" element={<InternationalTransferPage />} />
+
+        {/* Cards */}
+        <Route path="/cards" element={<ClientCard />} />
+        <Route path="/applynewcard" element={<ApplyNewCard />} />
+
+        {/* Complaint & Feedback */}
+        <Route path="/complaintfeedback" element={<ComplaintFeedback />} />
+        <Route path="/live-chat" element={<LiveChat />} />
+        <Route path="/email-support" element={<EmailSupport />} />
       </Routes>
     </Router>
   );

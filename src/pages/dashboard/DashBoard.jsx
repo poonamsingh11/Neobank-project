@@ -22,7 +22,7 @@ const DashBoard = () => {
       <div className="card text-white mb-4 shadow" style={{ backgroundColor: "#950606" }}>
         <div className="card-body d-flex justify-content-between align-items-center">
           <div>
-            <h1 className="h3 fw-bold">Welcome Back, Sonali Jakapure!</h1>
+            <h1 className="h3 fw-bold">Welcome Back, PoonamSingh!</h1>
             <p className="mb-0 opacity-75">Here's your financial overview for today</p>
           </div>
           <div className="text-end">
