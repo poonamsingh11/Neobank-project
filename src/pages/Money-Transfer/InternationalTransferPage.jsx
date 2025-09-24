@@ -83,12 +83,22 @@ const InternationalTransferPage = () => {
               <p className="text-muted mb-4">Send money securely to bank accounts worldwide</p>
               <div className="d-flex justify-content-center">
                 <Button
-                  variant="danger"
-                  className="rounded-pill px-5 py-3 fw-semibold fs-5"
-                  onClick={() => setStep(1)}
-                >
-                  Start Transfer
-                </Button>
+  variant="danger"
+  className="rounded-pill px-5 py-3 fw-semibold fs-5"
+  style={{ backgroundColor: "#900603", borderColor: "#900603", color: "#fff" }}
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+  onClick={() => setStep(1)}
+>
+  Start Transfer
+</Button>
+
               </div>
             </Card>
           </Col>
@@ -119,9 +129,32 @@ const InternationalTransferPage = () => {
               <p>{currencies.join(", ")}</p>
 
               <div className="d-flex justify-content-end">
-                <Button style={stepButtonStyle} onClick={handleNext} disabled={!formData.country}>
-                  Next
-                </Button>
+         <Button
+  style={{
+    ...stepButtonStyle,
+    backgroundColor: "#900603",
+    borderColor: "#900603",
+    opacity: 1,        
+    cursor: "pointer",
+    color: "#fff"      
+  }}
+  onClick={handleNext}
+  disabled={!formData.country} 
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+>
+  Next
+</Button>
+
+
+
+
               </div>
             </Card>
           </Col>
@@ -170,20 +203,44 @@ const InternationalTransferPage = () => {
               </Form>
 
               <div className="d-flex justify-content-between">
-                <Button style={stepButtonStyle} onClick={handlePrev}>
-                  Back
-                </Button>
-                <Button
-                  style={stepButtonStyle}
-                  onClick={handleNext}
-                  disabled={
-                    !formData.recipientName ||
-                    !formData.accountNumber ||
-                    !formData.swiftIban
-                  }
-                >
-                  Next
-                </Button>
+               <Button
+  style={stepButtonStyle}
+  onClick={handlePrev}
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+>
+  Back
+</Button>
+
+  <Button
+  style={{
+    ...stepButtonStyle,
+    backgroundColor: "#900603",
+    borderColor: "#900603",
+    opacity: 1,        
+    cursor: "pointer",
+    color: "#fff"      
+  }}
+  onClick={handleNext}
+  disabled={!formData.country} 
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+>
+  Next
+</Button>
+
               </div>
             </Card>
           </Col>
@@ -222,12 +279,36 @@ const InternationalTransferPage = () => {
               </div>
 
               <div className="d-flex justify-content-between">
-                <Button style={stepButtonStyle} onClick={handlePrev}>
-                  Back
-                </Button>
-                <Button style={stepButtonStyle} onClick={handleStartTransfer}>
-                  Confirm & Send Transfer
-                </Button>
+                <Button
+  style={stepButtonStyle}
+  onClick={handlePrev}
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+>
+  Back
+</Button>
+
+<Button
+  style={stepButtonStyle}
+  onClick={handleStartTransfer}
+  onMouseEnter={e => {
+    e.target.style.backgroundColor = "#780606";
+    e.target.style.borderColor = "#780606";
+  }}
+  onMouseLeave={e => {
+    e.target.style.backgroundColor = "#900603";
+    e.target.style.borderColor = "#900603";
+  }}
+>
+  Confirm & Send Transfer
+</Button>
+
               </div>
             </Card>
           </Col>

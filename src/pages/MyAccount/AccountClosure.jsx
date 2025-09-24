@@ -60,7 +60,7 @@ function AccountClosure() {
 
   if (isSubmitted) {
     return (
-      <Container fluid className="py-5" style={{ backgroundColor: "#f9f4f0", minHeight: "100vh" }}>
+      <Container fluid className="py-5" style={{ backgroundColor: "#fff", minHeight: "100vh" }}>
         <Row className="justify-content-center">
           <Col md={8}>
             <Card className="p-5 shadow-lg text-center">
@@ -131,7 +131,7 @@ function AccountClosure() {
         <Col md={10} lg={8}>
           <div className="row shadow-lg rounded-3" style={{ backgroundColor: "#fff" }}>
             {/* Left Branding Panel */}
-            <Col md={4} className="d-flex flex-column justify-content-center align-items-center p-4" style={{ backgroundColor: "#9e9191ff", color: "#fff", borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}>
+            <Col md={4} className="d-flex flex-column justify-content-center align-items-center p-4" style={{ backgroundColor: "#f31b1bff", color: "#fff", borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}>
               <img src="src/assets/neobank-logo.png" alt="Neo Bank Logo" className="img-fluid mb-3" style={{ maxHeight: 120 }} />
               <h4 className="fw-bold text-center">Neo Bank Account Closure</h4>
               <p className="text-light text-center mt-2" style={{ fontSize: "14px" }}>

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { CreditCard, Smartphone, Landmark, Wallet } from "lucide-react";
 
@@ -50,13 +51,16 @@ export default function AddMoney() {
   };
 
   return (
-    <div className="container py-5 d-flex justify-content-center">
-      <div className="card shadow-lg p-4 rounded-4" style={{ maxWidth: "600px", width: "100%" }}>
-        <h3 className="mb-4 fw-bold text-center" style={{ color: "#950606" }}>
+    <div className="container-fluid py-4 px-3">
+      <div
+        className="card shadow-lg p-4 rounded-4 border-0"
+        style={{ width: "100%", borderRadius: "18px" }}
+      >
+        <h1 className="mb-4  fs-2 fw-bold text-center" style={{ color: "#950606" }}>
           💰 Add Money
-        </h3>
+        </h1>
 
-  
+        {/* Amount */}
         <div className="mb-3">
           <label className="form-label">Amount (INR)</label>
           <div className="input-group">
@@ -72,6 +76,7 @@ export default function AddMoney() {
           </div>
         </div>
 
+        {/* Payment Source */}
         <div className="mb-4">
           <label className="form-label">Choose source</label>
           <div className="d-flex flex-wrap gap-2">
@@ -83,7 +88,11 @@ export default function AddMoney() {
                 className={`btn rounded-pill d-flex align-items-center gap-2 px-3 py-2 ${
                   source === opt.id ? "btn-danger text-white" : "btn-outline-secondary"
                 }`}
-                style={source === opt.id ? { backgroundColor: "#950606", borderColor: "#950606" } : {}}
+                style={
+                  source === opt.id
+                    ? { backgroundColor: "#950606", borderColor: "#950606" }
+                    : {}
+                }
               >
                 {opt.icon} {opt.label}
               </button>
@@ -91,7 +100,7 @@ export default function AddMoney() {
           </div>
         </div>
 
-    
+        {/* UPI */}
         {source === "upi" && (
           <div className="mb-3">
             <label className="form-label">UPI ID</label>
@@ -108,6 +117,7 @@ export default function AddMoney() {
           </div>
         )}
 
+        {/* Card */}
         {source === "card" && (
           <div className="mb-3">
             <div className="input-group mb-2">
@@ -162,9 +172,10 @@ export default function AddMoney() {
           </div>
         )}
 
-
+        {/* Error */}
         {error && <div className="alert alert-danger py-2">{error}</div>}
 
+        {/* Button */}
         <div className="d-grid">
           <button
             onClick={handlePay}

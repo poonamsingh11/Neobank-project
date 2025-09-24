@@ -35,7 +35,7 @@ const RtgsForm = () => {
     <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center bg-light py-5">
       <Card className="shadow-lg p-5 rounded-4" style={{ maxWidth: "1000px", width: "170%" }}>
         <Card.Body>
-          <h1 className="text-center mb-4">RTGS Transfer</h1>
+          <h1 className="text-center mb-4 text-danger fw-bold fs-3">RTGS Transfer</h1>
 
           <Form onSubmit={handleSubmit}>
   {/* Beneficiary Name */}
@@ -100,7 +100,7 @@ const RtgsForm = () => {
     onClick={() => navigate(-1)}
     style={{ backgroundColor: "#950606", borderColor: "#950606", color: "white" }}
   >
-    ← Back
+    Back
   </Button>
 </div>
 

@@ -1,4 +1,5 @@
 
+
 import { useState } from "react";
 
 const PayBills = () => {
@@ -30,32 +31,43 @@ const PayBills = () => {
 
   return (
     <div
-      className="container py-5 d-flex justify-content-center"
-    
+      className="d-flex justify-content-center align-items-center"
+      style={{
+        width: "100vw", // full window width
+        height: "100vh", // full window height
+        backgroundColor: "#fafafa",
+      }}
     >
+      {/* Outer bordered box */}
       <div
-        className="card shadow-lg border-0 w-100"
-        style={{ maxWidth: "600px", borderRadius: "18px" }}
+        className="w-100 h-100 p-4 mb-2"
+        style={{
+       
+          borderRadius: "12px",
+          backgroundColor: "#fff",
+          boxShadow: "0px 6px 20px rgba(0,0,0,0.1)",
+          overflowY: "auto",
+          margin:'30px'
+        }}
       >
-        <div className="card-body p-4">
- 
-          <h2
-            className="fw-bold text-center mb-2"
+        <div className="p-2">
+          <h1
+            className="fw-bold fs-2 text-center mb-2"
             style={{ color: "#950606" }}
           >
             🧾 Pay Bills
-          </h2>
+          </h1>
           <p className="text-muted text-center mb-4">
             Select a biller and pay instantly
           </p>
 
- 
+          {/* Biller options */}
           <div className="row g-3 mb-4">
             {billers.map((item) => (
               <div key={item.id} className="col-6 col-md-4">
                 <div
                   onClick={() => setBiller(item.name)}
-                  className={`text-center p-3 border rounded-4 shadow-sm h-100 cursor-pointer ${
+                  className={`text-center p-3 border rounded-4 shadow-sm h-100 ${
                     biller === item.name
                       ? "border-2 border-danger bg-light"
                       : "border-secondary-subtle"
@@ -72,7 +84,7 @@ const PayBills = () => {
             ))}
           </div>
 
-    
+          {/* Form */}
           <form onSubmit={handlePay}>
             <div className="mb-3">
               <input
@@ -111,7 +123,7 @@ const PayBills = () => {
             </button>
           </form>
 
-         
+          {/* Message */}
           {message && (
             <p className="mt-4 text-center fw-semibold text-success">{message}</p>
           )}

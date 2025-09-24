@@ -1,4 +1,6 @@
 
+
+
 import { useState } from "react";
 
 export default function SendMoney() {
@@ -38,23 +40,33 @@ export default function SendMoney() {
 
   return (
     <div
-      className="container py-5 d-flex justify-content-center"
-      style={{ minHeight: "100vh", backgroundColor: "#fafafa" }}
+      className="d-flex justify-content-center align-items-center"
+      style={{
+        width: "100vw",        // full screen width
+          // full screen height
+        backgroundColor: "#fafafa",
+        // overflow: "hidden",
+        
+      }}
     >
       <div
-        className="card shadow-lg border-0 w-100"
-        style={{ maxWidth: "600px", borderRadius: "18px" }}
-      >
-        <div className="card-body p-4">
-          
-          <h2
-            className="mb-4 fw-bold text-center"
+    className="w-100 h-100 p-4 mb-1"
+    style={{
+      borderRadius: "12px",   // optional rounded corners
+      backgroundColor: "#fff",
+      boxShadow: "0px 6px 20px rgba(0,0,0,0.1)",
+      margin:'30px'
+    }}
+  >
+        <div className="card-body p-4 d-flex flex-column">
+          <h1
+            className="mb-4 fw-bold fs-2 text-center"
             style={{ color: "#950606", letterSpacing: "0.5px" }}
           >
             💸 Send Money
-          </h2>
+          </h1>
 
-          
+          {/* Recipient type selector */}
           <div className="mb-4">
             <span className="text-muted small fw-semibold">Send To</span>
             <div className="d-flex gap-2 mt-2">
@@ -84,6 +96,7 @@ export default function SendMoney() {
             </div>
           </div>
 
+          {/* Conditional input fields */}
           {recipientType === "mobile" && (
             <input
               value={mobile}
@@ -127,7 +140,7 @@ export default function SendMoney() {
             </div>
           )}
 
-        
+          {/* Amount */}
           <input
             type="number"
             min="1"
@@ -137,6 +150,7 @@ export default function SendMoney() {
             className="form-control mb-3 rounded-pill px-3 py-2"
           />
 
+          {/* Remark */}
           <input
             value={remark}
             onChange={(e) => setRemark(e.target.value)}
@@ -144,14 +158,15 @@ export default function SendMoney() {
             className="form-control mb-3 rounded-pill px-3 py-2"
           />
 
+          {/* Error Message */}
           {error && (
             <p className="text-danger small fw-semibold mb-3">⚠️ {error}</p>
           )}
 
-         
+          {/* Send button */}
           <button
             onClick={handleSend}
-            className="btn w-100 text-white fw-bold py-2 rounded-pill"
+            className="btn w-100 text-white fw-bold  rounded-pill mt-auto"
             style={{
               backgroundColor: "#950606",
               boxShadow: "0px 4px 12px rgba(149, 6, 6, 0.4)",

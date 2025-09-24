@@ -3,6 +3,8 @@ import { PiggyBank, PlusSquare } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 export default function DepositsPage() {
+  const navigate = useNavigate();
+
   const [deposits] = useState([
     {
       id: 1,
@@ -56,55 +58,67 @@ export default function DepositsPage() {
 
   return (
     <div className="bg-light min-vh-100">
-      <div className="container py-4">
-
-        {/* Header */}
-        <div className="d-flex justify-content-between align-items-center mb-4">
-          <div>
-            <h1 className="text-2xl font-semibold text-[#900603]">Deposits</h1>
-            <p className="text-muted">
-              Secure your future with guaranteed returns
-            </p>
-          </div>
-
-          {/* Hover Dropdown Button */}
-          <div className="relative inline-block text-left group">
-            <button
-              className="inline-flex items-center gap-2 text-white px-4 py-2 rounded shadow transition hover:scale-105"
-              style={{ backgroundColor: "#900603" }}
-              type="button"
-            >
-              <PlusSquare size={16} /> Open New Deposit
-            </button>
-
-            {/* Dropdown menu */}
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border z-20 hidden group-hover:block">
-              <a
-                href="/fd-calculator"
-                className="block px-4 py-2 text-gray-700 hover:bg-[#900603] hover:text-white rounded transition"
-              >
-                Fixed Deposit
-              </a>
-              <a
-                href="/recurring-deposit"
-                className="block px-4 py-2 text-gray-700 hover:bg-[#900603] hover:text-white rounded transition"
-              >
-                Recurring Deposit
-              </a>
-              <a
-                href="/tax-saver-fd11"
-                className="block px-4 py-2 text-gray-700 hover:bg-[#900603] hover:text-white rounded transition"
-              >
-                Tax Saver FD
-              </a>
-            </div>
-          </div>
+      {/* Sticky Header */}
+      <div
+        className="d-flex justify-content-between align-items-center px-4"
+        style={{
+          backgroundColor: "#900603",
+          padding: "25px 0",
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+        }}
+      >
+        <div>
+          <h1 className="fw-bold fs-2 text-white mb-0">Deposits</h1>
+          <p className="text-white small">
+            Secure your future with guaranteed returns
+          </p>
         </div>
 
+        {/* Hover Dropdown Button */}
+        <div className="relative inline-block text-left group">
+          <button
+            className="inline-flex items-center gap-2 text-white px-3 py-2 rounded shadow-sm transition"
+            style={{
+              backgroundColor: "#900603",
+              border: "2px solid white",
+            }}
+            type="button"
+          >
+            <PlusSquare size={16} /> Open New Deposit
+          </button>
+
+          {/* Dropdown menu */}
+          <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow border z-20 hidden group-hover:block">
+            <button
+              onClick={() => navigate("/fd-calculator")}
+              className="d-block w-100 text-start px-3 py-2 text-dark small hover:bg-[#900603] hover:text-white rounded border-0 bg-transparent"
+            >
+              Fixed Deposit
+            </button>
+            <button
+              onClick={() => navigate("/recurring-deposit")}
+              className="d-block w-100 text-start px-3 py-2 text-dark small hover:bg-[#900603] hover:text-white rounded border-0 bg-transparent"
+            >
+              Recurring Deposit
+            </button>
+            <button
+              onClick={() => navigate("/tax-saver-fd11")}
+              className="d-block w-100 text-start px-3 py-2 text-dark small hover:bg-[#900603] hover:text-white rounded border-0 bg-transparent"
+            >
+              Tax Saver FD
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Page Content */}
+      <div className="container-fluid p-3">
         {/* Deposit Calculator Card */}
-        <div className="card mb-4 border-0 shadow">
+        <div className="card mb-4 border-0 shadow-sm">
           <div className="card-body">
-            <h3 className="card-title mb-4 text-[#900603]">
+            <h3 className="fw-bold fs-5 mb-4" style={{ color: " #140505ff" }}>
               Deposit Calculator
             </h3>
             <div className="row g-3 align-items-center">
@@ -114,14 +128,14 @@ export default function DepositsPage() {
                   value={principal}
                   onChange={(e) => setPrincipal(e.target.value)}
                   placeholder="Enter amount"
-                  className="form-control"
+                  className="form-control form-control-sm"
                 />
               </div>
               <div className="col-md">
                 <select
                   value={termYears}
                   onChange={(e) => setTermYears(e.target.value)}
-                  className="form-select"
+                  className="form-select form-select-sm"
                 >
                   <option value="">Select term</option>
                   <option value="1">1 year</option>
@@ -137,16 +151,16 @@ export default function DepositsPage() {
                   step="0.01"
                   value={interestRate}
                   onChange={(e) => setInterestRate(e.target.value)}
-                  className="form-control"
+                  className="form-control form-control-sm"
                 />
               </div>
               <div className="col-md">
                 <div
-                  className="p-2 rounded text-end"
+                  className="p-2 rounded text-end small"
                   style={{ backgroundColor: "rgba(144,6,3,0.1)" }}
                 >
-                  <div className="small text-muted">Maturity Amount</div>
-                  <div className="fw-semibold" style={{ color: "#900603" }}>
+                  <div className="text-muted">Maturity Amount</div>
+                  <div className="fw-bold" style={{ color: "#900603" }}>
                     ₹{maturity.toLocaleString()}
                   </div>
                 </div>
@@ -156,9 +170,11 @@ export default function DepositsPage() {
         </div>
 
         {/* Deposit Options */}
-        <div className="card mb-4 border-0 shadow">
+        <div className="card mb-4 border-0 shadow-sm">
           <div className="card-body">
-            <h3 className="card-title text-[#900603]">Deposit Options</h3>
+            <h3 className="fw-bold fs-5 mb-3" style={{ color: "#900603" }}>
+              Deposit Options
+            </h3>
             <div className="row">
               <div className="col-md-4 mb-3">
                 <PlanCard
@@ -189,25 +205,27 @@ export default function DepositsPage() {
         </div>
 
         {/* My Deposits */}
-        <div className="card mb-4 border-0 shadow">
+        <div className="card mb-4 border-0 shadow-sm">
           <div className="card-body">
-            <h3 className="card-title  text-[#900603]">My Deposits</h3>
+            <h3 className="fw-bold fs-5 mb-3" style={{ color: "#900603" }}>
+              My Deposits
+            </h3>
             <div className="list-group">
               {deposits.map((d) => (
                 <div
                   key={d.id}
-                  className="list-group-item d-flex justify-content-between align-items-center"
+                  className="list-group-item d-flex justify-content-between align-items-center small"
                 >
                   <div className="d-flex align-items-center gap-3">
                     <div
                       className="p-2 rounded"
                       style={{ backgroundColor: "rgba(144,6,3,0.1)" }}
                     >
-                      <PiggyBank size={20} style={{ color: "#900603" }} />
+                      <PiggyBank size={18} style={{ color: "#900603" }} />
                     </div>
                     <div>
                       <div className="fw-semibold">{d.type}</div>
-                      <div className="small text-muted">
+                      <div className="text-muted small">
                         {d.rate}% p.a. · Matures on {formatDate(d.maturityDate)}
                       </div>
                     </div>
@@ -277,7 +295,7 @@ function PlanCard({ title, rate, minAmount, term }) {
 
   return (
     <div className="card h-100 border-0 shadow-sm">
-      <div className="card-body d-flex flex-column">
+      <div className="card-body d-flex flex-column small">
         <div className="d-flex justify-content-between align-items-start">
           <div className="d-flex gap-2 align-items-center">
             <div
@@ -288,20 +306,20 @@ function PlanCard({ title, rate, minAmount, term }) {
             </div>
             <div>
               <div className="fw-semibold">{title}</div>
-              <div className="small text-muted">
+              <div className="text-muted small">
                 Guaranteed returns with fixed interest rate
               </div>
             </div>
           </div>
           <div
-            className="px-2 py-1 rounded small"
+            className="px-2 py-1 rounded small fw-semibold"
             style={{ backgroundColor: "rgba(144,6,3,0.1)", color: "#900603" }}
           >
             {rate}%
           </div>
         </div>
 
-        <div className="mt-3 small text-muted">
+        <div className="mt-2 small text-muted">
           <div>
             <strong>Min Amount</strong> ₹{minAmount.toLocaleString()}
           </div>
@@ -310,7 +328,7 @@ function PlanCard({ title, rate, minAmount, term }) {
           </div>
         </div>
 
-        <ul className="mt-3 small text-muted" style={{ paddingLeft: "20px" }}>
+        <ul className="mt-2 small text-muted ps-3">
           <li>Guaranteed returns</li>
           <li>Flexible tenure</li>
           <li>Premature withdrawal</li>
@@ -318,7 +336,7 @@ function PlanCard({ title, rate, minAmount, term }) {
 
         <button
           onClick={handleOpen}
-          className="btn mt-auto"
+          className="btn btn-sm mt-auto fw-semibold"
           style={{ backgroundColor: "#900603", color: "white" }}
         >
           Open Account
@@ -329,14 +347,13 @@ function PlanCard({ title, rate, minAmount, term }) {
 }
 
 function SummaryCard({ title, value, subtitle }) {
-
   return (
-    <div className="card border-0 shadow-sm p-3">
-      <div className="small text-muted">{title}</div>
-      <div className="h5 mt-2" style={{ color: "#900603" }}>
+    <div className="card border-0 shadow-sm p-3 small">
+      <div className="text-muted">{title}</div>
+      <div className="h6 mt-1 fw-bold" style={{ color: "#900603" }}>
         {value}
       </div>
-      <div className="small text-secondary mt-1">{subtitle}</div>
+      <div className="text-secondary small">{subtitle}</div>
     </div>
   );
 }

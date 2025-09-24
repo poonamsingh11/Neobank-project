@@ -37,10 +37,9 @@ function ChequeBookRequest() {
   const prevStep = () => currentStep > 1 && setCurrentStep(currentStep - 1);
   const handleSubmit = () => setIsSubmitted(true);
 
-  // ✅ Submitted Page
   if (isSubmitted) {
     return (
-      <Container fluid className="py-5" style={{ backgroundColor: "#f9f4f0", minHeight: "100vh" }}>
+      <Container fluid className="py-5" style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
         <Row className="justify-content-center">
           <Col md={6}>
             <Card className="p-5 shadow-lg text-center">
@@ -87,10 +86,10 @@ function ChequeBookRequest() {
   }
 
   return (
-    <Container fluid className="py-5" style={{ backgroundColor: "#f9f4f0", minHeight: "100vh" }}>
+    <Container fluid className="py-5" style={{ backgroundColor: "#ffffff", minHeight: "100vh" }}>
       <Row className="justify-content-center">
         <Col md={10} lg={9}>
-          <div className="row shadow-lg rounded-3" style={{ backgroundColor: "#fff" }}>
+          <div className="row shadow-lg rounded-3 w-100" style={{ backgroundColor: "#fff", margin: "0 auto" }}>
             {/* Left Branding Panel */}
             <Col md={4} className="d-flex flex-column justify-content-center align-items-center p-4" style={{ backgroundColor: "#e60000", color: "#fff", borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}>
               <img src="src/assets/neobank-logo.png" alt="Neo Bank Logo" className="img-fluid mb-3" style={{ maxHeight: 120 }} />
@@ -103,7 +102,7 @@ function ChequeBookRequest() {
             {/* Right Form Panel */}
             <Col md={8} className="p-4">
               {/* Stepper */}
-              <div className="d-flex justify-content-between align-items-center mb-4">
+              <div className="d-flex justify-content-between align-items-center mb-4 position-relative">
                 {["Account Details", "Personal Info", "Delivery"].map((label, index) => {
                   const stepNumber = index + 1;
                   const isActive = currentStep >= stepNumber;
@@ -248,7 +247,6 @@ function ChequeBookRequest() {
                         </Col>
                       </Row>
 
-                      {/* Summary */}
                       <Card className="p-3 mt-3 bg-light">
                         <h6 className="fw-bold">Request Summary</h6>
                         <p><strong>Account Type:</strong> {formData.accountType}</p>
@@ -271,7 +269,6 @@ function ChequeBookRequest() {
                 </div>
               </Card>
 
-              {/* Footer */}
               <div className="text-center text-muted mt-3">
                 <small>Need help? Contact our customer support at 1800-XXX-XXXX <br /> Available 24/7 for your assistance</small>
               </div>

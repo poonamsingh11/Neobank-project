@@ -56,7 +56,8 @@ const Kyc = () => {
             {step === 1 && (
               <>
                 <div className="text-center">
-                  <h1 className="fw-bold display-4 text-dark">KYC Verification</h1>
+                  <h2 className="fw-bold fs-1 text-dark">KYC Verification</h2>
+
                   <p className="text-secondary fs-5 mx-auto" style={{ maxWidth: "600px" }}>
                     To increase your transaction limits and secure your account, we need to verify your identity. Please keep the following documents ready:
                   </p>
@@ -77,7 +78,7 @@ const Kyc = () => {
             {/* Step 2: Personal Info */}
             {step === 2 && (
               <>
-                <h2 className="fw-bold text-dark">Personal Information</h2>
+                <h2 className="fw-bold fs-3 text-dark">Personal Information</h2>
                 <Form className="mt-4">
                   <Row className="g-3">
                     <Col md={6}>
@@ -150,7 +151,7 @@ const Kyc = () => {
             {/* Step 3: Document Upload */}
             {step === 3 && (
               <>
-                <h2 className="fw-bold text-dark">Upload Documents</h2>
+                <h2 className="fw-bold fs-3 text-dark">Upload Documents</h2>
                 <Form className="mt-4">
                   <Form.Group className="mb-3">
                     <Form.Label>Photo ID</Form.Label>
@@ -197,8 +198,8 @@ const Kyc = () => {
             {/* Step 4: Review */}
             {step === 4 && (
               <>
-                <h2 className="fw-bold text-dark">Review Your Details</h2>
-                <div className="mt-3 text-secondary fs-5">
+                <h2 className="fw-bold fs-3 text-dark">Review Your Details</h2>
+                <div className="mt-3 fs-6">
                   <p><strong>Name:</strong> {formData.fullName}</p>
                   <p><strong>DOB:</strong> {formData.dob}</p>
                   <p><strong>Address:</strong> {formData.address}</p>

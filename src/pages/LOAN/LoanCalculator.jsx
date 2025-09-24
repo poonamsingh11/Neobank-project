@@ -135,13 +135,13 @@ const LoanCalculator = () => {
   }, [loanAmount, tenure, interestRate]);
 
   return (
-    <div className="container my-4">
+    <div className=" m-4">
       <div className="card shadow-sm border rounded-3 p-4">
         {/* Header */}
         <div className="d-flex align-items-center mb-3">
           <FaCalculator
             className="fs-4 me-2" // fs-4 = font-size, me-2 = margin-end
-            color="#950606" // custom deep red color
+            color="#900603" // custom deep red color
           />
 
           <p className="h5 fw-semibold mb-0">EMI Calculator</p>

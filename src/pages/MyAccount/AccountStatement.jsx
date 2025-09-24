@@ -26,13 +26,23 @@ export function AccountStatement() {
   ];
 
   return (
-    <div className="container py-5" style={{ minHeight: "100vh", backgroundColor: "#f9f4f0" }}>
-      {/* Main Card */}
-      <div className="row shadow-lg rounded-3" style={{ maxWidth: "900px", margin: "0 auto", backgroundColor: "#fff" }}>
+    <div
+      className="w-100 py-5 d-flex justify-content-center"
+      style={{ minHeight: "100vh", backgroundColor: "#ffffff" }} // Full width white background
+    >
+      <div
+        className="row w-100 shadow-lg rounded-3"
+        style={{ maxWidth: "900px", backgroundColor: "#fff", margin: "0 auto" }} // Inner card container
+      >
         {/* Left Side - Branding */}
         <div
           className="col-md-4 d-flex flex-column justify-content-center align-items-center p-4"
-          style={{ backgroundColor: "#e60000", color: "#fff", borderTopLeftRadius: "15px", borderBottomLeftRadius: "15px" }}
+          style={{
+            backgroundColor: "#e60000",
+            color: "#fff",
+            borderTopLeftRadius: "15px",
+            borderBottomLeftRadius: "15px",
+          }}
         >
           <img
             src="src/assets/neobank-logo.png"
@@ -76,7 +86,6 @@ export function AccountStatement() {
                 >
                   {s.label}
                 </div>
-                {/* Connector */}
                 {idx < stepTitles.length - 1 && (
                   <div
                     style={{
@@ -119,7 +128,11 @@ export function AccountStatement() {
                 </div>
 
                 <div className="d-flex justify-content-end">
-                  <button className="btn btn-danger" disabled={enteredCaptcha !== captcha} onClick={() => setStep(2)}>
+                  <button
+                    className="btn btn-danger"
+                    disabled={enteredCaptcha !== captcha}
+                    onClick={() => setStep(2)}
+                  >
                     Next
                   </button>
                 </div>
@@ -196,7 +209,11 @@ export function AccountStatement() {
 
                 <div className="mb-3">
                   <label className="form-label">Statement Type</label>
-                  <select className="form-select" value={statementType} onChange={(e) => setStatementType(e.target.value)}>
+                  <select
+                    className="form-select"
+                    value={statementType}
+                    onChange={(e) => setStatementType(e.target.value)}
+                  >
                     <option>Request for statement</option>
                     <option>Request for interest certificate</option>
                     <option>Request for TDS certificate</option>
@@ -206,7 +223,11 @@ export function AccountStatement() {
                 {statementType === "Request for statement" && (
                   <div className="mb-3">
                     <label className="form-label">Select Period</label>
-                    <select className="form-select" value={period} onChange={(e) => setPeriod(e.target.value)}>
+                    <select
+                      className="form-select"
+                      value={period}
+                      onChange={(e) => setPeriod(e.target.value)}
+                    >
                       <option value="">-- Select Period --</option>
                       <option value="30">Last 1 Month</option>
                       <option value="90">Last 3 Months</option>

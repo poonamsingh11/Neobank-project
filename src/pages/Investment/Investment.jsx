@@ -306,46 +306,42 @@ const InvestmentPage = () => {
     }
 
     return (
-        <div className="container-fluid py-4" style={{ backgroundColor: "#f8f9fa" }}>
+        <div
+            className="container-fluid px-0"  // px-0 → horizontal padding remove
+            style={{ backgroundColor: "#f8f9fa", overflowX: "hidden" }} // overflowX hidden → horizontal scroll remove
+        >
 
             {/* Header */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="d-flex justify-content-between align-items-center mb-4"
+            <div
+                className="d-flex justify-content-between align-items-center px-4"
+                style={{
+                    backgroundColor: "#900603",
+                    padding: "25px 0",
+                    position: "sticky",
+                    top: 0,
+                    zIndex: 1000,
+                }}
             >
-                {/* Center aligned heading + tagline */}
-                <div className="flex-grow-1 text-center">
-                    <h1
-                        className="fw-bold mb-1"
-                        style={{
-                            fontSize: "2.4rem",
-                            background: "linear-gradient(90deg, #1E3A8A, #0F766E)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent"
-                        }}
-                    >
-                        Investment Portfolio
-                    </h1>
-                    <p className="text-muted fs-5">
+            
+                <div>
+                    <h1 className="fw-bold fs-2 text-white mb-0">Investment Portfolios</h1>
+                    <p className="text-white small">
                         Grow your wealth with smart investments
                     </p>
                 </div>
 
-                {/* Start Investing button - right side same as before */}
                 <button
-                    className="btn text-white d-flex align-items-center ms-3"
-                    style={{ backgroundColor: "#900603" }}
+                    className="btn text-white d-flex align-items-right"
+                    style={{ backgroundColor: "#780606", border: "2px solid white" }}
                     onClick={handleScrollToInvestments}
                 >
                     <Plus size={25} className="me-2" /> Start Investing
                 </button>
-            </motion.div>
+            </div>
 
 
-
-
+            {/* Space between header and portfolio overview */}
+            <div className="my-4"></div>  {/* 1.5-2rem vertical space */}
 
             {/* Portfolio Overview */}
             <div className="row g-4 mb-4">
@@ -402,7 +398,7 @@ const InvestmentPage = () => {
                             <p className="text-muted">No investments yet. Start investing below.</p>
                         ) : (
                             portfolioData.map((item, index) => (
-                                <motion.div
+                                <div
                                     key={item.name}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
@@ -431,7 +427,7 @@ const InvestmentPage = () => {
                                             </small>
                                         </div>
                                     </div>
-                                </motion.div>
+                                </div>
                             ))
                         )}
                     </div>
@@ -504,13 +500,22 @@ const InvestmentPage = () => {
             {/* Bootstrap Modal (themed) */}
             {showModal && (
                 <div
-                    className="modal fade show d-block"
+                    className="modal fade show"
                     tabIndex="-1"
-                    style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                    style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
+                    onClick={() => setShowModal(false)}
                 >
-                    <div className="modal-dialog modal-dialog-centered">
-                        <div className="modal-content border-0 rounded-4 shadow">
-                            <div className="modal-header text-white" style={{ backgroundColor: "#900603" }}>
+                    <div
+                        className="modal-dialog modal-dialog-centered"
+                        style={{ maxWidth: "900px", width: "90%", margin: "1.5rem auto" }} // 🔥 bigger size + centered
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="modal-content rounded-4 shadow border-0">
+                            {/* Header */}
+                            <div
+                                className="modal-header text-white"
+                                style={{ backgroundColor: "#900603", borderBottom: "1px solid rgba(255,255,255,0.2)" }}
+                            >
                                 <h5 className="modal-title">Invest in {selectedInvestment?.investmentName}</h5>
                                 <button
                                     type="button"
@@ -519,27 +524,32 @@ const InvestmentPage = () => {
                                     onClick={() => setShowModal(false)}
                                 ></button>
                             </div>
+
+                            {/* Body */}
                             <div className="modal-body">
-                                <label className="form-label">Enter Amount</label>
+                                <label className="form-label fw-semibold">Enter Amount</label>
                                 <input
                                     type="number"
                                     className="form-control"
                                     value={investmentAmount}
                                     onChange={(e) => setInvestmentAmount(e.target.value)}
                                     placeholder="Enter amount in INR"
+                                    style={{ borderRadius: "0.5rem", marginTop: "0.5rem", height: "50px", fontSize: "1.1rem" }} // 🔥 bigger input
                                 />
                             </div>
-                            <div className="modal-footer">
+
+                            {/* Footer */}
+                            <div className="modal-footer d-flex justify-content-between">
                                 <button
-                                    className="btn text-white"
-                                    style={{ backgroundColor: "#780606" }}
+                                    className="btn text-white flex-fill me-2"
+                                    style={{ backgroundColor: "#780606", borderRadius: "0.5rem", height: "50px", fontSize: "1rem" }}
                                     onClick={() => setShowModal(false)}
                                 >
                                     Cancel
                                 </button>
                                 <button
-                                    className="btn text-white"
-                                    style={{ backgroundColor: "#900603" }}
+                                    className="btn text-white flex-fill ms-2"
+                                    style={{ backgroundColor: "#900603", borderRadius: "0.5rem", height: "50px", fontSize: "1rem" }}
                                     onClick={handleConfirmInvestment}
                                 >
                                     Confirm
@@ -549,6 +559,7 @@ const InvestmentPage = () => {
                     </div>
                 </div>
             )}
+
 
             {/* Investment Goals */}
             <div className="card shadow-sm" >

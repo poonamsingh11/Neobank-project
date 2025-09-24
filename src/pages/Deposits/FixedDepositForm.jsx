@@ -52,7 +52,7 @@ const FixedDepositForm = () => {
   }, [amount, duration]);
 
   return (
-    <div className="container my-5">
+    <div className="container my-5" >
       <h2
         className="mb-4 fw-bold"
         style={{ color: "#900603", display: "flex", alignItems: "center", gap: "0.5rem" }}
@@ -63,7 +63,7 @@ const FixedDepositForm = () => {
       {/* 🔹 Summary from Calculator */}
       {amount && duration && calculated.maturity > 0 && (
         <div
-          className="alert text-white shadow-lg mb-4 border-0"
+          className="alert text-white shadow-lg mb-2 border-0"
           style={{
             background: "linear-gradient(135deg, #900603, #b71c1c)",
             borderRadius: "0.9rem",
@@ -76,7 +76,7 @@ const FixedDepositForm = () => {
         </div>
       )}
 
-      <div className="card shadow-sm p-4">
+      <div className="card shadow-sm p-4"style={{  backgroundColor: "#FFF0F0" }}>
         {/* Account */}
         <div className="mb-3">
           <label className="form-label fw-bold">Your Saving A/C No.</label>

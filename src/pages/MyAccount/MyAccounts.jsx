@@ -16,7 +16,7 @@ const MyAccountsPage = () => {
   const [showCloseAccountMenu, setShowCloseAccountMenu] = useState(false);
   const navigate = useNavigate();
 
-  // Accounts data including Joint Account
+  // Accounts data
   const accounts = [
     {
       type: "Savings Account",
@@ -24,8 +24,8 @@ const MyAccountsPage = () => {
       accountNumber: "****3456",
       ifsc: "NEOB0001567",
       status: "Active",
-      statusColor: "bg-green-100 text-green-700",
-      bgColor: "bg-red-600",
+      statusColor: "bg-success text-white",
+
     },
     {
       type: "Current Account",
@@ -33,8 +33,8 @@ const MyAccountsPage = () => {
       accountNumber: "****7890",
       ifsc: "NEOB0001234",
       status: "Inactive",
-      statusColor: "bg-red-100 text-red-700",
-      bgColor: "bg-red-600",
+      statusColor: "bg-secondary text-white",
+
     },
     {
       type: "Fixed Deposit",
@@ -42,17 +42,17 @@ const MyAccountsPage = () => {
       accountNumber: "****9123",
       ifsc: "NEOB0001289",
       status: "Active",
-      statusColor: "bg-green-100 text-green-700",
-      bgColor: "bg-red-600",
+      statusColor: "bg-success text-white",
+
     },
     {
       type: "Joint Account",
-      balance: "₹1,50,000.00",
+      balance: "₹1,50,750.00",
       accountNumber: "****4567",
-      ifsc: "NEOB0005678",
+      ifsc: "NEOB0001456",
       status: "Active",
-      statusColor: "bg-green-100 text-green-700",
-      bgColor: "bg-red-600",
+      statusColor: "bg-success text-white",
+
     },
   ];
 
@@ -67,7 +67,7 @@ const MyAccountsPage = () => {
       date: "2025-01-10",
       icon: ArrowDownLeft,
       amountColor: "text-green-600",
-      iconBg: "bg-green-100",
+      bgColor: "bg-danger",
     },
     {
       type: "debit",
@@ -78,7 +78,7 @@ const MyAccountsPage = () => {
       date: "2025-01-09",
       icon: ArrowUpRight,
       amountColor: "text-red-600",
-      iconBg: "bg-red-100",
+      bgColor: "bg-danger",
     },
     {
       type: "credit",
@@ -89,7 +89,7 @@ const MyAccountsPage = () => {
       date: "2025-01-08",
       icon: ArrowDownLeft,
       amountColor: "text-green-600",
-      iconBg: "bg-green-100",
+      bgColor: "bg-danger",
     },
     {
       type: "debit",
@@ -100,7 +100,7 @@ const MyAccountsPage = () => {
       date: "2025-01-07",
       icon: ArrowUpRight,
       amountColor: "text-red-600",
-      iconBg: "bg-red-100",
+      bgColor: "bg-danger",
     },
   ];
 
@@ -143,19 +143,19 @@ const MyAccountsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-2">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-2">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      {/* 🔴 Header full width, nav se chipka hua */}
+      <div className="w-100 bg-red-900 py-4" style={{ marginTop: "0px" }}>
+        <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center px-3 w-100">
           <div>
-            <h1 className="h2 fw-bold text-dark">My Accounts</h1>
-            <p className="text-muted mt-1">
-              Manage all your bank accounts and transactions
+            <h1 className="text-white m-0">My Accounts</h1>
+            <p className="text-white small mb-0" style={{ lineHeight: 1.6 }}>
+              App preferences, language, and display settings
             </p>
           </div>
 
           {/* Open/Close Account buttons */}
-          <div className="d-flex gap-2 position-relative">
+          <div className="d-flex gap-2 position-relative mt-3 mt-md-0">
             {/* Open Account */}
             <div className="position-relative">
               <button
@@ -164,7 +164,7 @@ const MyAccountsPage = () => {
                   setShowCloseAccountMenu(false);
                 }}
                 className="btn text-white px-4 py-2 fw-medium shadow d-flex align-items-center gap-2"
-                style={{ backgroundColor: "#900603" }}
+                style={{ backgroundColor: "#900603", border: "2px solid white", }}
                 onMouseOver={(e) =>
                   (e.currentTarget.style.backgroundColor = "#6e0102")
                 }
@@ -206,7 +206,7 @@ const MyAccountsPage = () => {
                   setShowNewAccountMenu(false);
                 }}
                 className="btn text-white px-4 py-2 fw-medium shadow d-flex align-items-center gap-2"
-                style={{ backgroundColor: "#900603" }}
+                style={{ backgroundColor: "#900603", border: "2px solid white", }}
                 onMouseOver={(e) =>
                   (e.currentTarget.style.backgroundColor = "#6e0102")
                 }
@@ -240,14 +240,34 @@ const MyAccountsPage = () => {
             </div>
           </div>
         </div>
+      </div>
 
+      {/* 🔴 Main Content full width */}
+      <div className="w-100 px-3 px-md-4 mt-4">
         {/* Accounts Grid */}
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mb-4">
           {accounts.map((account, index) => (
-            <div className="col" key={index}>
+            <div
+              className="col"
+              key={index}
+              onClick={() => navigate("/account-details")}
+              style={{ cursor: "pointer" }}
+            >
               <div
                 className="card h-100 shadow-sm border-0 account-card"
-                style={{ cursor: "pointer", transition: "all 0.3s ease" }}
+                style={{
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "scale(1.03)";
+                  e.currentTarget.style.boxShadow =
+                    "0 6px 18px rgba(0,0,0,0.15)";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.style.boxShadow =
+                    "0 2px 6px rgba(0,0,0,0.1)";
+                }}
               >
                 <div className="card-body p-4 d-flex flex-column justify-content-between h-100">
                   <div>
@@ -256,7 +276,11 @@ const MyAccountsPage = () => {
                         className={`rounded d-flex align-items-center justify-content-center ${account.bgColor}`}
                         style={{ width: "40px", height: "40px" }}
                       >
-                        <i className="bi bi-bank text-white"></i>
+                        {/* 👇 Icon ka color #900603 */}
+                        <i
+                          className="bi bi-bank"
+                          style={{ color: "#900603", fontSize: "20px" }}
+                        ></i>
                       </div>
                       <span
                         className={`badge ${account.statusColor} px-2 py-1`}
@@ -267,38 +291,60 @@ const MyAccountsPage = () => {
                     </div>
                     <h5 className="fw-bold text-dark mb-3">{account.type}</h5>
                     <div className="small text-muted mb-1">Available Balance</div>
-                    <p className="h4 fw-bold text-danger mb-3">{account.balance}</p>
+                    <p className="h4 fw-bold text-danger mb-3">
+                      {account.balance}
+                    </p>
                     <div className="small text-muted mb-3">
                       <div className="d-flex justify-content-between">
                         <span>Account Number</span>
-                        <span className="fw-semibold text-dark">{account.accountNumber}</span>
+                        <span className="fw-semibold text-dark">
+                          {account.accountNumber}
+                        </span>
                       </div>
                       <div className="d-flex justify-content-between">
                         <span>IFSC Code</span>
-                        <span className="fw-semibold text-dark">{account.ifsc}</span>
+                        <span className="fw-semibold text-dark">
+                          {account.ifsc}
+                        </span>
                       </div>
                     </div>
                   </div>
                   <div className="d-flex gap-2 mt-3">
+                    {/* 👇 Hover pe background #900603 */}
                     <button
                       className="btn btn-outline-danger flex-fill py-2 small"
-                      onMouseOver={(e) =>
-                        (e.currentTarget.className = "btn btn-danger flex-fill py-2 small")
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.className = "btn btn-outline-danger flex-fill py-2 small")
-                      }
+                      style={{
+                        transition: "all 0.3s ease",
+                        borderColor: "#900603",
+                        color: "#900603",
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = "#900603";
+                        e.currentTarget.style.color = "white";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "#900603";
+                      }}
                     >
                       View Details
                     </button>
+
                     <button
                       className="btn btn-outline-danger px-3 py-2"
-                      onMouseOver={(e) =>
-                        (e.currentTarget.className = "btn btn-danger px-3 py-2")
-                      }
-                      onMouseOut={(e) =>
-                        (e.currentTarget.className = "btn btn-outline-danger px-3 py-2")
-                      }
+                      style={{
+                        borderColor: "#900603",
+                        color: "#900603",
+                        transition: "all 0.3s ease",
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = "#900603";
+                        e.currentTarget.style.color = "white";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = "transparent";
+                        e.currentTarget.style.color = "#900603";
+                      }}
                     >
                       <Download size={14} />
                     </button>
@@ -310,87 +356,151 @@ const MyAccountsPage = () => {
         </div>
 
         {/* Banking Services */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+
+        <div className="row row-cols-1 row-cols-md-3 g-4 mb-6">
+
           {/* Update KYC */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-            <div className="flex justify-center mb-4">
-              <div className="bg-blue-50 rounded-lg p-3">
-                <CheckCircle size={32} className="text-blue-600" />
-              </div>
-            </div>
-            <h5 className="font-bold text-gray-900 mb-2">Update KYC</h5>
-            <p className="text-gray-600 text-sm mb-4">
-              Keep your KYC documents updated for seamless banking
-            </p>
-            <button
-              className="px-6 py-2 text-white rounded-md"
-              style={{ backgroundColor: "#900603" }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#6e0102")}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#900603")}
+          <div className="col">
+            <div
+              className="bg-white rounded-lg shadow-sm border p-6 text-center"
+              style={{ transition: "transform 0.2s ease, box-shadow 0.2s ease", cursor: "pointer" }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.15)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+              }}
               onClick={() => navigate("/update-kyc")}
             >
-              Update Now
-            </button>
+              <div className="mb-4">
+                <div className="bg-blue-50 rounded-lg p-3 d-inline-block">
+                  <CheckCircle size={32} className="text-blue-600" />
+                </div>
+              </div>
+              <h5 className="font-bold text-gray-900 mb-2">Update KYC</h5>
+              <p className="text-gray-600 text-sm mb-4">
+                Keep your KYC documents updated for seamless banking
+              </p>
+              <button
+                className="px-6 py-2 text-white rounded-md"
+                style={{ backgroundColor: "#900603" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#6e0102")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#900603")
+                }
+                onClick={(e) => {
+                  e.stopPropagation(); // 👈 button click se card ke onClick trigger na ho
+                  navigate("/update-kyc");
+                }}
+              >
+                Update Now
+              </button>
+            </div>
           </div>
 
           {/* Account Statement */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-            <div className="flex justify-center mb-4">
-              <div className="bg-green-50 rounded-lg p-3">
-                <FileText size={32} className="text-green-600" />
-              </div>
-            </div>
-            <h5 className="font-bold text-gray-900 mb-2">Account Statement</h5>
-            <p className="text-gray-600 text-sm mb-4">
-              Download your account statements instantly
-            </p>
-            <button
-              className="px-6 py-2 text-white rounded-md"
-              style={{ backgroundColor: "#900603" }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#6e0102")}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#900603")}
+          <div className="col">
+            <div
+              className="bg-white rounded-lg shadow-sm border p-6 text-center"
+              style={{ transition: "transform 0.2s ease, box-shadow 0.2s ease", cursor: "pointer" }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.15)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+              }}
               onClick={() => navigate("/account-statement")}
             >
-              Download
-            </button>
+              <div className="mb-4">
+                <div className="bg-green-50 rounded-lg p-3 d-inline-block">
+                  <FileText size={32} className="text-green-600" />
+                </div>
+              </div>
+              <h5 className="font-bold text-gray-900 mb-2">Account Statement</h5>
+              <p className="text-gray-600 text-sm mb-4">
+                Download your account statements instantly
+              </p>
+              <button
+                className="px-6 py-2 text-white rounded-md"
+                style={{ backgroundColor: "#900603" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#6e0102")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#900603")
+                }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/account-statement");
+                }}
+              >
+                Download
+              </button>
+            </div>
           </div>
 
           {/* Cheque Book */}
-          <div className="bg-white rounded-lg shadow-sm border p-6 text-center">
-            <div className="flex justify-center mb-4">
-              <div className="bg-amber-50 rounded-lg p-3">
-                <BookOpen size={32} className="text-amber-600" />
-              </div>
-            </div>
-            <h5 className="font-bold text-gray-900 mb-2">Cheque Book</h5>
-            <p className="text-gray-600 text-sm mb-4">
-              Request new cheque book for your account
-            </p>
-            <button
-              className="px-6 py-2 text-white rounded-md"
-              style={{ backgroundColor: "#900603" }}
-              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#6e0102")}
-              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#900603")}
+          <div className="col">
+            <div
+              className="bg-white rounded-lg shadow-sm border p-6 text-center"
+              style={{ transition: "transform 0.2s ease, box-shadow 0.2s ease", cursor: "pointer" }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.03)";
+                e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.15)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.1)";
+              }}
               onClick={() => navigate("/chequebook")}
             >
-              Request
-            </button>
+              <div className="mb-4">
+                <div className="bg-amber-50 rounded-lg p-3 d-inline-block">
+                  <BookOpen size={32} className="text-amber-600" />
+                </div>
+              </div>
+              <h5 className="font-bold text-gray-900 mb-2">Cheque Book</h5>
+              <p className="text-gray-600 text-sm mb-4">
+                Request new cheque book for your account
+              </p>
+              <button
+                className="px-6 py-2 text-white rounded-md"
+                style={{ backgroundColor: "#900603" }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#6e0102")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.style.backgroundColor = "#900603")
+                }
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/chequebook");
+                }}
+              >
+                Request
+              </button>
+            </div>
           </div>
         </div>
-
         {/* Recent Transactions */}
-        <div className="card shadow-sm border-0 mb-4">
+        <div className="card shadow-sm border-0 mb-4 w-100">
           <div className="card-body p-4">
             <div className="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-4">
               <div>
                 <h4 className="fw-bold text-dark mb-1">Recent Transactions</h4>
-                <p className="text-muted mb-0">Latest transactions across all accounts</p>
+                <p className="text-muted mb-0">
+                  Latest transactions across all accounts
+                </p>
               </div>
               <button
                 className="btn text-white btn-sm mt-3 mt-md-0"
                 style={{ backgroundColor: "#900603" }}
-                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#6e0102")}
-                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#900603")}
               >
                 View All
               </button>
@@ -407,17 +517,42 @@ const MyAccountsPage = () => {
                           className={`rounded d-flex align-items-center justify-content-center me-3 ${transaction.iconBg}`}
                           style={{ width: "32px", height: "32px" }}
                         >
-                          <IconComponent size={14} className={transaction.amountColor} />
+                          <IconComponent
+                            size={14}
+                            className={transaction.amountColor}
+                          />
                         </div>
                         <div>
-                          <p className="fw-semibold text-dark mb-0 small">{transaction.title}</p>
-                          <p className="text-muted mb-0" style={{ fontSize: "0.75rem" }}>{transaction.account}</p>
-                          <p className="text-muted mb-0" style={{ fontSize: "0.7rem" }}>Ref: {transaction.reference}</p>
+                          <p className="fw-semibold text-dark mb-0 small">
+                            {transaction.title}
+                          </p>
+                          <p
+                            className="text-muted mb-0"
+                            style={{ fontSize: "0.75rem" }}
+                          >
+                            {transaction.account}
+                          </p>
+                          <p
+                            className="text-muted mb-0"
+                            style={{ fontSize: "0.7rem" }}
+                          >
+                            Ref: {transaction.reference}
+                          </p>
                         </div>
                       </div>
                       <div className="text-end">
-                        <p className={`fw-bold mb-0 ${transaction.amountColor}`} style={{ fontSize: "0.9rem" }}>{transaction.amount}</p>
-                        <p className="text-muted mb-0" style={{ fontSize: "0.75rem" }}>{transaction.date}</p>
+                        <p
+                          className={`fw-bold mb-0 ${transaction.amountColor}`}
+                          style={{ fontSize: "0.9rem" }}
+                        >
+                          {transaction.amount}
+                        </p>
+                        <p
+                          className="text-muted mb-0"
+                          style={{ fontSize: "0.75rem" }}
+                        >
+                          {transaction.date}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -428,7 +563,7 @@ const MyAccountsPage = () => {
         </div>
 
         {/* Monthly Stats */}
-        <div className="row row-cols-1 row-cols-md-3 g-3">
+        <div className="row row-cols-1 row-cols-md-3 g-3 w-100">
           {monthlyStats.map((stat, index) => {
             const IconComponent = stat.icon;
             return (
@@ -437,11 +572,16 @@ const MyAccountsPage = () => {
                   <div className="card-body p-4">
                     <div className="d-flex justify-content-center mb-3">
                       <div className="bg-light rounded p-3">
-                        <IconComponent size={24} className={stat.amountColor} />
+                        <IconComponent
+                          size={24}
+                          className={stat.amountColor}
+                        />
                       </div>
                     </div>
                     <h5 className="fw-bold text-dark mb-3">{stat.title}</h5>
-                    <p className={`h4 fw-bold mb-2 ${stat.amountColor}`}>{stat.amount}</p>
+                    <p className={`h4 fw-bold mb-2 ${stat.amountColor}`}>
+                      {stat.amount}
+                    </p>
                     <p className={`small fw-medium mb-0 ${stat.changeColor}`}>
                       {stat.change} {stat.changeText}
                     </p>
@@ -452,6 +592,7 @@ const MyAccountsPage = () => {
           })}
         </div>
       </div>
+
     </div>
   );
 };

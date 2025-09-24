@@ -31,45 +31,52 @@ const AddGoal = () => {
 
     return (
         <div
-            className="py-4"
+            className="px-0"
             style={{
                 minHeight: "100vh",
                 backgroundColor: "#f8f9fa",
+                overflowX: "hidden", // horizontal scroll remove
             }}
         >
-            <div className="container">
-                {/* ✅ Premium Banking Style Header */}
-                <div className="mb-5 text-center position-relative">
-                    <span
-                        className="text-primary fw-semibold position-absolute"
-                        style={{ left: 0, top: "50%", transform: "translateY(-50%)", cursor: "pointer" }}
-                        onClick={() => navigate("/investment")}
-                    >
-                        <i className="bi bi-arrow-left-circle me-2"></i>
-                        Back to Investments
-                    </span>
+            {/* Full-width Header */}
+            <div
+                className="w-full mb-4 position-relative"
+                style={{
+                    backgroundColor: "#950606", // 🔴 dark red background
+                    padding: "1rem 0"           // ⬅️ size thoda chhota niche se
+                }}
+            >
+                {/* Back to Investments Button */}
+                <span
+                    className="position-absolute fw-semibold"
+                    style={{
+                        left: "1.5rem",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                        cursor: "pointer",
+                        color: "#FFD580", // 🌟 light gold for contrast
+                        fontSize: "1rem"
+                    }}
+                    onClick={() => navigate("/investment")}
+                >
+                    <i className="bi bi-arrow-left-circle me-2"></i>Back to Investments
+                </span>
 
-                    <h2
-                        className="fw-bold mb-2"
-                        style={{ color: "#123C69", letterSpacing: "0.5px" }}
-                    >
-                        <i className="bi bi-bullseye me-2 text-danger"></i>
-                        Add Investment Goal
+                {/* Header Title */}
+                <div className="text-center">
+                    <h2 className="fw-bold mb-2 text-white" style={{ letterSpacing: "0.5px" }}>
+                        <i className="bi bi-bullseye me-2 text-warning"></i> Add Investment Goal
                     </h2>
-                    <p className="text-muted fs-5 mb-3">
+                    <p className="text-light fs-6 mb-0">
                         Set up a new financial goal to track your progress
                     </p>
-                    <hr
-                        className="mx-auto"
-                        style={{
-                            width: "80px",
-                            height: "3px",
-                            background: "#900603",
-                            border: "none",
-                        }}
-                    />
                 </div>
+            </div>
 
+
+
+
+            <div className="container-fluid px-4 mt-4">
                 <div className="row">
                     {/* Left Column - Form */}
                     <div className="col-lg-8 mb-4">
@@ -104,9 +111,7 @@ const AddGoal = () => {
 
                                     {/* Target Amount */}
                                     <div className="col-md-6 mb-3">
-                                        <label className="form-label fw-semibold">
-                                            Target Amount (₹) *
-                                        </label>
+                                        <label className="form-label fw-semibold">Target Amount (₹) *</label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -119,9 +124,7 @@ const AddGoal = () => {
 
                                     {/* Current Amount */}
                                     <div className="col-md-6 mb-3">
-                                        <label className="form-label fw-semibold">
-                                            Current Amount (₹)
-                                        </label>
+                                        <label className="form-label fw-semibold">Current Amount (₹)</label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -145,9 +148,7 @@ const AddGoal = () => {
 
                                     {/* SIP */}
                                     <div className="col-md-6 mb-4">
-                                        <label className="form-label fw-semibold">
-                                            Monthly Contribution (₹)
-                                        </label>
+                                        <label className="form-label fw-semibold">Monthly Contribution (₹)</label>
                                         <input
                                             type="number"
                                             className="form-control"
@@ -197,18 +198,10 @@ const AddGoal = () => {
                         >
                             <h6 className="fw-bold text-dark mb-3">💡 Investment Tips</h6>
                             <ul className="list-unstyled small mb-0">
-                                <li className="mb-2 text-danger">
-                                    • Start early to benefit from compound interest
-                                </li>
-                                <li className="mb-2 text-danger">
-                                    • Review and adjust your goals regularly
-                                </li>
-                                <li className="mb-2 text-danger">
-                                    • Diversify your investment portfolio
-                                </li>
-                                <li className="mb-0 text-danger">
-                                    • Consider tax-saving investment options
-                                </li>
+                                <li className="mb-2 text-danger">• Start early to benefit from compound interest</li>
+                                <li className="mb-2 text-danger">• Review and adjust your goals regularly</li>
+                                <li className="mb-2 text-danger">• Diversify your investment portfolio</li>
+                                <li className="mb-0 text-danger">• Consider tax-saving investment options</li>
                             </ul>
                         </div>
                     </div>

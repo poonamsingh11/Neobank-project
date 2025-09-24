@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function RDPage() {
-   const navigate = useNavigate(); 
+  const navigate = useNavigate();
   // States
   const [amount, setAmount] = useState(100000);
   const [duration, setDuration] = useState(24); // months
@@ -59,14 +59,16 @@ function RDPage() {
               <p>Attractive returns | Flexible Tenures | Guaranteed Returns</p>
               <button
                 className="btn btn-light rounded-pill px-4 me-2 fw-bold"
-                onClick={() => navigate("/fixed-deposit", { state: { type: "Reccuring Deposit" ,
-        amount,
-        duration,
-        interestRate: activeRate.rate,
-        maturity: maturityAmount,
-      },
-    })
-  }
+                onClick={() => navigate("/fixed-deposit", {
+                  state: {
+                    type: "Reccuring Deposit",
+                    amount,
+                    duration,
+                    interestRate: activeRate.rate,
+                    maturity: maturityAmount,
+                  },
+                })
+                }
               >
                 OPEN FD
               </button>
@@ -76,18 +78,18 @@ function RDPage() {
               <p className="mt-3">⭐ 8,500+ PEOPLE ARE INTERESTED</p>
             </div>
             {/* Right */}
-       <div className="col-md-5 text-center">
-  <img
-    src={fdBanner}
-    alt="FD Banner"
-    className="img-fluid"
-    style={{
-      maxWidth: "100%",    // container ke andar hi rahe
-      height: "auto"
-    }}
-  />
-</div>
-          
+            <div className="col-md-5 text-center">
+              <img
+                src={fdBanner}
+                alt="FD Banner"
+                className="img-fluid"
+                style={{
+                  maxWidth: "100%",    // container ke andar hi rahe
+                  height: "auto"
+                }}
+              />
+            </div>
+
           </div>
         </div>
       </section>
@@ -177,11 +179,10 @@ function RDPage() {
                           setSelectedRate(item);
                           setDuration(item.months); // ✅ yahan duration update
                         }}
-                        className={`p-3 rounded shadow-sm text-center flex-fill ${
-                          activeRate.id === item.id
-                            ? "bg-danger text-white"
-                            : "bg-light"
-                        }`}
+                        className={`p-3 rounded shadow-sm text-center flex-fill ${activeRate.id === item.id
+                          ? "bg-danger text-white"
+                          : "bg-light"
+                          }`}
                         style={{
                           minWidth: "150px",
                           cursor: "pointer",
@@ -203,20 +204,18 @@ function RDPage() {
                 </div>
 
                 {/* Right */}
-                <div className="col-4 d-flex align-items-center ps-md-4 mt-4 mt-md-0">
-                  <div className="bg-white p-4 rounded shadow-sm border h-100 w-100 text-center">
+                <div className="col-12 col-md-6 col-lg-4 d-flex ps-md-4 mt-4 mt-md-0">
+                  <div className="bg-white p-4 rounded shadow-sm border w-100 text-center">
                     <h6 className="text-muted">Interest Rate</h6>
                     <h2 className="fw-bold text-danger">
                       {activeRate.rate.toFixed(2)}% Per Annum
                     </h2>
                     <hr />
                     <p className="mb-2">
-                      <strong>Maturity Amount:</strong> ₹
-                      {maturityAmount.toLocaleString()}
+                      <strong>Maturity Amount:</strong> ₹{maturityAmount.toLocaleString()}
                     </p>
                     <p className="mb-2">
-                      <strong>Total Interest:</strong> ₹
-                      {totalInterest.toLocaleString()}
+                      <strong>Total Interest:</strong> ₹{totalInterest.toLocaleString()}
                     </p>
                     <p className="mb-2">
                       <strong>Duration:</strong> {duration} Months
@@ -229,24 +228,24 @@ function RDPage() {
                         year: "numeric",
                       })}
                     </p>
-                    <div className="d-grid gap-2 mt-4">
-                <button
-  className="btn fw-bold text-white shadow"
-  style={{ backgroundColor: "#900603" }}
-  onClick={() =>
-    navigate("/fixed-deposit", {
-      state: {
-        type: "Reccuring Deposit",
-        amount,
-        duration,
-        interestRate: activeRate.rate,
-        maturity: maturityAmount,
-      },
-    })
-  }
->
-  OPEN Reccuring DEPOSIT
-</button>
+                    <div className="d-grid gap-2 mt-3">
+                      <button
+                        className="btn fw-bold text-white shadow"
+                        style={{ backgroundColor: "#900603" }}
+                        onClick={() =>
+                          navigate("/fixed-deposit", {
+                            state: {
+                              type: "Recurring Deposit",
+                              amount,
+                              duration,
+                              interestRate: activeRate.rate,
+                              maturity: maturityAmount,
+                            },
+                          })
+                        }
+                      >
+                        OPEN RECURRING DEPOSIT
+                      </button>
 
                       <button className="btn btn-outline-dark fw-bold shadow-sm">
                         CHECK INTEREST RATE
@@ -254,12 +253,13 @@ function RDPage() {
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
       </section>
-     
+
       {/* Benefits Section */}
       <section className="py-5">
         <div className="container text-center">
@@ -295,7 +295,7 @@ function RDPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Benefits */}
       <section className="py-5">
         <div className="container text-center">

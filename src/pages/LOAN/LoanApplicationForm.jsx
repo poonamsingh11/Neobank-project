@@ -119,7 +119,7 @@ function LoanApplicationForm() {
             )}
             <Button
               onClick={() => setSubmitted(false)}
-              style={{ backgroundColor: "#950606", border: "none", padding: "10px 20px", fontWeight: "500" }}
+              style={{ backgroundColor: "#900603", border: "none", padding: "10px 20px", fontWeight: "500" }}
             >
               Submit Another Application
             </Button>
@@ -131,10 +131,10 @@ function LoanApplicationForm() {
 
   return (
     <div className="container my-4">
-      <h2 className="mb-4 text-center">Loan Application Form</h2>
-      <Form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm bg-light">
+      <h2 className="mb-4 text-center " style={{ color: "#900603" }}>Loan Application Form</h2>
+      <Form onSubmit={handleSubmit} className="p-4 border rounded shadow-sm "style={{ backgroundColor: "#fff0f0" }}>
         {/* Applicant Details */}
-        <h5 className="mb-3 text-primary">Applicant Details</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Applicant Details</h5>
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -187,7 +187,7 @@ function LoanApplicationForm() {
         </Form.Group>
 
         {/* Employment & Income */}
-        <h5 className="mb-3 text-primary">Employment & Income</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Employment & Income</h5>
         <Row className="mb-3">
           <Col md={4}>
             <Form.Group>
@@ -217,7 +217,7 @@ function LoanApplicationForm() {
         </Row>
 
         {/* Co-Applicant */}
-        <h5 className="mb-3 text-primary">Co-Applicant (Optional)</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Co-Applicant (Optional)</h5>
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -240,7 +240,7 @@ function LoanApplicationForm() {
         </Row>
 
         {/* Loan Details */}
-        <h5 className="mb-3 text-primary">Loan Details</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Loan Details</h5>
         <Row className="mb-3">
           <Col md={4}>
             <Form.Group>
@@ -279,7 +279,7 @@ function LoanApplicationForm() {
 
         {formData.loanType === "Gold Loan" && (
           <>
-            <h5 className="mb-3">Gold Loan Details</h5>
+            <h5 className="mb-3" style={{ color: "#900603" }}>Gold Loan Details</h5>
             <Row className="mb-3">
               <Col md={4}>
                 <Form.Group>
@@ -328,7 +328,7 @@ function LoanApplicationForm() {
         </Form.Group>
 
         {/* Financial & Banking Details */}
-        <h5 className="mb-3 text-primary">Financial & Banking Details</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Financial & Banking Details</h5>
         <Row className="mb-3">
           <Col md={6}>
             <Form.Group>
@@ -366,7 +366,7 @@ function LoanApplicationForm() {
         </Row>
 
         {/* Documents */}
-        <h5 className="mb-3 text-primary">Documents</h5>
+        <h5 className="mb-3" style={{ color: "#900603" }}>Documents</h5>
         <Form.Group className="mb-3">
           <Form.Label>Identity Proof *</Form.Label>
           <Form.Select name="idProof" value={formData.idProof} onChange={handleChange}>
@@ -395,9 +395,9 @@ function LoanApplicationForm() {
         <div className="text-center">
           <Button
             type="submit"
-            style={{ backgroundColor: "#950606", border: "none", padding: "10px 20px", fontWeight: "500" }}
-            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#b30707")}
-            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#950606")}
+            style={{ backgroundColor: "#900603", border: "none", padding: "10px 20px", fontWeight: "500" }}
+            onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#780606")}
+            onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#900603")}
           >
             Submit Application
           </Button>

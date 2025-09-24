@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./services.css";
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState(null);
+  const navigate = useNavigate();
 
   // 🔹 Categories with services
   const serviceCategories = [
@@ -70,18 +72,56 @@ const Services = () => {
     { label: "Mobile Banking", icon: "📱" },
   ];
 
+  // 🔹 Map each service to a route
+  const serviceRoutes = {
+    "Open Savings Account": "/myAccount",
+    "Fixed Deposit": "/Deposit",
+    "Recurring Deposit (RD)": "/Deposit",
+    "Government Schemes (PPF/SSY)": "/ppf",
+    "Loan Services": "/Loan",
+    "Loan Eligibility Check": "/Loan",
+    "EMI Calculator": "/Loan",
+    "Credit Card Services": "/cards",
+    "Block / Unblock Card": "/cards",
+    "Change Card PIN": "/cards",
+    "Set Spending Limit": "/money-transfer",
+    "Fund Transfer": "/money-transfer",
+    "UPI Payments": "/send-money",
+    "Bill Payments": "/pay-bills",
+    "Add Beneficiary": "/addBeneficiary",
+    "Mobile Banking Registration": "/mobileBanking",
+    "Internet Banking Activation": "/internetBanking",
+    "Reset / Change Password": "/resetPassword",
+    "e-Statement Subscription": "/account-statement",
+    "Report Fraud": "/complaintfeedback",
+    "Raise Service Request": "/complaintfeedback",
+    "Feedback / Complaint": "/complaintfeedback",
+    "Stop Cheque Payment": "/stopCheque",
+    "Cheque Book Request": "/chequeBook",
+  };
+
   // 🔹 Handle Proceed
   const handleProceed = (service) => {
-    alert(`Proceeding with ${service}`);
-    // In future: navigate(`/service/${service.toLowerCase().replace(/\s+/g, '-')}`);
+    if (serviceRoutes[service]) {
+      navigate(serviceRoutes[service]);
+    } else {
+      alert(`No route defined for "${service}"`);
+    }
   };
 
   return (
     <div className="services-container">
-      <h1 className="services-title">Our Services</h1>
-      <p className="services-subtitle">
-        Explore all the banking services we provide
-      </p>
+       {/* Header */}
+      <div
+        className="py-4 text-center shadow-sm"
+        style={{ backgroundColor: "#960603" }}
+      >
+        <h1 className="fw-bold fs-2 text-white">Our Services</h1>
+        <p className="text-light mb-0">
+          Explore all the banking services we provide
+        </p>
+      
+      </div>
 
       {/* Category-wise services */}
       {serviceCategories.map((cat, i) => (
@@ -146,85 +186,6 @@ const Services = () => {
           </div>
         </div>
       )}
-
-      {/* Footer */}
-      <footer className="footer-container">
-        <div className="footer-top">
-          {/* Company Info */}
-          <div className="footer-company">
-            <div className="footer-logo"><img src="neobank-logo.png" alt="Neobank Logo" /></div>
-            <h2>NeoBank</h2>
-            <p>Your trusted digital bank for all financial needs.</p>
-          </div>
-
-          {/* Quick Links */}
-          <div className="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-              <li>
-                <a href="/">Accounts</a>
-              </li>
-              <li>
-                <a href="/">Loans</a>
-              </li>
-              <li>
-                <a href="/">Cards</a>
-              </li>
-              <li>
-                <a href="/">Services</a>
-              </li>
-              <li>
-                <a href="/">Support</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Customer Support */}
-          <div className="footer-support">
-            <h3>Customer Support</h3>
-            <ul>
-              <li>
-                <a href="/">Help Center</a>
-              </li>
-              <li>
-                <a href="/">FAQs</a>
-              </li>
-              <li>
-                <a href="/">Report an Issue</a>
-              </li>
-              <li>
-                <a href="/">Feedback</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="footer-contact">
-            <h3>Contact</h3>
-            <p>Email: support@neobank.com</p>
-            <p>Phone: +91 12345 67890</p>
-            <p>Address: Mumbai, India</p>
-          </div>
-
-          {/* Social Media */}
-          <div className="footer-socials">
-            <h3>Follow Us</h3>
-            <span>🐦</span>
-            <span>📘</span>
-            <span>📸</span>
-            <span>💼</span>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="footer-bottom">
-          <p>&copy; 2025 NeoBank. All rights reserved.</p>
-          <div className="footer-legal">
-            <a href="/">Privacy Policy</a> |<a href="/"> Terms of Service</a> |
-            <a href="/"> Security</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

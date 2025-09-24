@@ -203,7 +203,7 @@ const loans = [
 function LoanProducts() {
   const navigate=useNavigate();
   return (
-    <div className="container my-4">
+    <div className="m-4">
       <div className="card shadow rounded-4 border-0">
         <div className="card-body p-4">
           <p className="h5 fw-semibold">Available Loan Products</p>
@@ -222,7 +222,7 @@ function LoanProducts() {
                     </div> */}
                     <div
                       className="p-3 rounded"
-                      style={{ backgroundColor: "#950606d9" }} // 20 = 12% opacity
+                      style={{ backgroundColor: "#900603" }} // 20 = 12% opacity
                     >
                       {loan.Icon}
                     </div>
@@ -257,7 +257,7 @@ function LoanProducts() {
 
                   <button
                     className="btn btn-warning text-white w-100 fw-medium"
-                    style={{ backgroundColor: "#950606" }}
+                    style={{ backgroundColor: "#900603" }}
                     onClick={() => navigate(loan.url)}
                   >
                     Apply Now

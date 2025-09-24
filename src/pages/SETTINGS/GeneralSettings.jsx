@@ -71,16 +71,15 @@ const GeneralSettings = () => {
     return (
         <>
             {/* Header */}
-            <div className={`py-5 text-center position-relative`} style={{ backgroundColor: '#900603', color: '#fff' }}>
-                <Button
-                    variant="link"
-                    className="text-white position-absolute top-0 start-0 p-3 d-flex align-items-center text-decoration-none"
-                    onClick={handleBack}
-                >
-                    <ChevronLeft className="me-2" /> Back to Settings
-                </Button>
-                <h2 className="fw-semibold">General Settings</h2>
-                <p className="opacity-75 mb-0">Customize your app experience and preferences</p>
+            <div
+                className="py-3 position-relative text-start"
+                style={{ backgroundColor: "#900603", color: "#fff", paddingLeft: "2rem" }}
+            >
+                {/* Title & Subtitle - left aligned */}
+                <h2 className="fw-semibold mb-1">General Settings</h2>
+                <p className="opacity-75 mb-0">
+                    Customize your app experience and preferences
+                </p>
             </div>
 
             <Container fluid className="py-4">

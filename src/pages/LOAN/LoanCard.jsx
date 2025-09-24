@@ -58,13 +58,13 @@ import { FaMoneyBillWave, FaWallet, FaCheckCircle, FaCalendarAlt } from "react-i
 
 function LoanCard() {
   return (
-    <div className="container my-4">
+    <div className=" m-4">
       <div className="row g-4">
         {/* TOTAL LOAN CARD */}
         <div className="col-12 col-md-6 col-lg-3">
           <div className="card shadow-sm border rounded-3 h-100 p-3 d-flex flex-column justify-content-between loan-card">
             <div className="d-flex align-items-center gap-2">
-              <FaMoneyBillWave className=" fs-4"  color="#950606e2"/>
+              <FaMoneyBillWave className=" fs-4"  color="#900603"/>
               <h2 className="h6 fw-bold text-dark mb-0">Total Loan Amount</h2>
             </div>
             <p className="fs-5 fw-semibold text-warning mt-3 mb-1">₹25,00,000.00</p>
@@ -76,7 +76,7 @@ function LoanCard() {
         <div className="col-12 col-md-6 col-lg-3">
           <div className="card shadow-sm border rounded-3 h-100 p-3 d-flex flex-column justify-content-between loan-card">
             <div className="d-flex align-items-center gap-2">
-              <FaWallet className=" fs-4"  color="#950606e2"/>
+              <FaWallet className=" fs-4"  color="#900603"/>
               <h2 className="h6 fw-bold text-dark mb-0">Outstanding</h2>
             </div>
             <p className="fs-5 fw-semibold text-danger mt-3 mb-1">₹18,50,000.00</p>
@@ -88,7 +88,7 @@ function LoanCard() {
         <div className="col-12 col-md-6 col-lg-3">
           <div className="card shadow-sm border rounded-3 h-100 p-3 d-flex flex-column justify-content-between loan-card">
             <div className="d-flex align-items-center gap-2">
-              <FaCheckCircle className=" fs-4" color="#950606e2" />
+              <FaCheckCircle className=" fs-4" color="#900603" />
               <h2 className="h6 fw-bold text-dark mb-0">Amount Paid</h2>
             </div>
             <p className="fs-5 fw-semibold text-success mt-3 mb-1">₹6,50,000.00</p>
@@ -100,7 +100,7 @@ function LoanCard() {
         <div className="col-12 col-md-6 col-lg-3">
           <div className="card shadow-sm border rounded-3 h-100 p-3 d-flex flex-column justify-content-between loan-card">
             <div className="d-flex align-items-center gap-2">
-              <FaCalendarAlt className=" fs-4" color="#950606e2" />
+              <FaCalendarAlt className=" fs-4" color="#900603" />
               <h2 className="h6 fw-bold text-dark mb-0">Monthly EMI</h2>
             </div>
             <p className="fs-5 fw-semibold text-primary mt-3 mb-1">₹23,500.00</p>

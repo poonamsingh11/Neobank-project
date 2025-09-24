@@ -26,20 +26,24 @@ const History = () => {
   return (
     <Container
       fluid
-      className="bg-light min-vh-100"
-      style={{ paddingTop: "6rem", paddingBottom: "3rem" }} // pushes below navbar
+      className="bg-light min-vh-100  px-0"
+      style={{ paddingTop: "0rem", paddingBottom: "0rem" }} // pushes below navbar
     >
       {/* Title */}
-      <Row className="justify-content-center text-center">
-        <Col lg={8}>
-          <h1 className="display-4 fw-bold mb-3 text-dark">
-            Transaction History
-          </h1>
-          <p className="lead text-secondary mb-5">
-            View all your past money transfers, bill payments, and recharges
-          </p>
-        </Col>
-      </Row>
+      <Row className="justify-content-center text-center mb-4"> 
+  <Col
+  className="text-center py-4 px-5 rounded"
+  style={{ backgroundColor: "#900603" }}
+>
+    <h1 className="text-white mb-2">
+      Transaction History
+    </h1>
+    <p className="mb-0 text-white mt-2">
+      View all your past money transfers, bill payments, and recharges
+    </p>
+  </Col>
+</Row>
+
 
       {/* Search */}
       <Row className="justify-content-center mb-5">

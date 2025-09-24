@@ -6,7 +6,7 @@ import {
   FaShieldAlt,
   FaBell,
 } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"; // ✅ import for navigation
+import { useNavigate } from "react-router-dom"; // ✅ navigation import
 import QuickSettings from "./QuickSettings";
 import AccountInfo from "./Accoutnfo";
 import SecurityOptions from "./SecurityOptions";
@@ -15,41 +15,41 @@ const settings = [
   {
     title: "General Settings",
     description: "App preferences, language, and display settings",
-    icon: <FaCog className="text-white" />,
-    bg: "bg-primary",
-       path: "/GeneralSettings",
+    icon: <FaCog className="text-warning" />,
+    path: "/GeneralSettings",
   },
   {
     title: "Personal Details",
     description: "Update your profile information and contact details",
-    icon: <FaUser className="text-white" />,
-    bg: "bg-success",
-      path: "/personal-details",
+    icon: <FaUser className="text-warning" />,
+    path: "/personal-details",
   },
   {
     title: "Security",
     description: "Password, 2FA, and security preferences",
-    icon: <FaShieldAlt className="text-white" />,
-    bg: "bg-danger",
+    icon: <FaShieldAlt className="text-warning" />,
+    path: "/security",
   },
   {
     title: "Notifications",
     description: "Manage email, SMS, and push notifications",
-    icon: <FaBell className="text-white" />,
-    bg: "bg-info",
-    path: "/notifications", // ✅ route path to navigate
+    icon: <FaBell className="text-warning" />,
+    path: "/notifications",
   },
 ];
 
 const Setting = () => {
-  const navigate = useNavigate(); // ✅ useNavigate hook
+  const navigate = useNavigate(); // ✅ hook for navigation
 
   return (
     <>
       {/* Header */}
-      <div className="bg-light p-4 shadow-sm">
-        <h1 className="fw-bold fs-2 text-dark">Settings</h1>
-        <p className="text-muted mb-0">
+      <div
+        className="py-4 text-center shadow-sm"
+        style={{ backgroundColor: "#960603" }}
+      >
+        <h1 className="fw-bold fs-2 text-white">Settings</h1>
+        <p className="text-light mb-0">
           Manage your account preferences and security
         </p>
       </div>
@@ -61,14 +61,17 @@ const Setting = () => {
             <Col md={6} lg={4} key={index}>
               <Card
                 className="h-100 shadow-sm border-0 rounded-3"
-                style={{ minHeight: "250px", cursor: item.path ? "pointer" : "default" }}
-                onClick={() => item.path && navigate(item.path)} // ✅ card click navigates if path exists
+                style={{ minHeight: "250px" }}
               >
                 <Card.Body>
                   {/* Icon box */}
                   <div
-                    className={`${item.bg} d-inline-flex align-items-center justify-content-center rounded mb-3`}
-                    style={{ width: "40px", height: "40px" }}
+                    className="d-inline-flex align-items-center justify-content-center rounded mb-3"
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      backgroundColor: "#960603",
+                    }}
                   >
                     {item.icon}
                   </div>
@@ -82,14 +85,23 @@ const Setting = () => {
                     {item.description}
                   </p>
 
-                  {/* Configure button */}
+                  {/* Configure Button */}
                   <Button
-                    variant="outline-warning"
                     className="w-100 mt-3 d-flex justify-content-between align-items-center"
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent card click duplicate
-                      item.path && navigate(item.path); // ✅ navigate on button click
+                    style={{
+                      color: "#960603",
+                      border: "1px solid #960603",
+                      backgroundColor: "transparent",
                     }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = "#960603";
+                      e.currentTarget.style.color = "#fff";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent";
+                      e.currentTarget.style.color = "#960603";
+                    }}
+                    onClick={() => item.path && navigate(item.path)} // ✅ navigate on click
                   >
                     Configure <span>→</span>
                   </Button>
@@ -100,6 +112,7 @@ const Setting = () => {
         </Row>
       </div>
 
+      {/* Extra Sections */}
       <QuickSettings />
       <AccountInfo />
       <SecurityOptions />

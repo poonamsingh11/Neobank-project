@@ -4,52 +4,59 @@ html, body {
   width: 100%;
 }
 .services-container {
-  /* padding: 40px; */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f9; /* हलका gray-blue background */
+  background: #f4f6f9;
   min-height: 100vh;
-  /* width: 100%; */
 }
 
-/* Titles */
+/* ================= Services Header ================= */
+.services-header {
+  background: linear-gradient(135deg, #900603, #900603);
+  color: #fff;
+  text-align: center;
+  padding: 0px 0px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.6s ease-in-out;
+}
 .services-title {
-  padding-top: 50px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #b22222; /* NeoBank Red */
+  color: white;
   text-align: center;
+  font-weight: bold;
+  animation: fadeIn 0.6s ease-in-out;
 }
-
 .services-subtitle {
-  padding-top: 0px;
   font-size: 1.1rem;
-  color: #555;
+  color: white;
   text-align: center;
-  /* margin-bottom: 35px; */
+  margin-bottom: 30px;
+  
+  
+  
+  animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Category Sections */
+/* ================= Category Sections ================= */
 .category-section {
-  /* margin-bottom: 50px; */
   padding: 40px;
 }
-
 .category-title {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #b22222; /* NeoBank Red */
+  color: #b22222;
   border-left: 6px solid #b22222;
   padding-left: 12px;
 }
-
-/* Service Grid */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
-/* Service Card */
 .service-card {
   background: #fff;
   padding: 20px;
@@ -60,44 +67,38 @@ html, body {
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
   cursor: pointer;
 }
-
 .service-card:hover {
   transform: translateY(-6px);
-  background: #b22222;
+  background: #780606;
   color: #fff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
-
 .service-icon {
   font-size: 2rem;
   display: block;
   margin-bottom: 10px;
 }
-
 .service-label {
   font-size: 1rem;
   font-weight: 500;
 }
 
-/* Popular Services */
+/* ================= Popular Services ================= */
 .popular-services {
   margin-top: 40px;
 }
-
 .popular-title {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #d35400; /* Orange Accent */
+  color: #d35400;
   text-align: center;
 }
-
 .popular-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
 }
-
 .popular-card {
   background: #fff;
   padding: 15px 20px;
@@ -109,10 +110,9 @@ html, body {
   flex: 0 1 180px;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
-
 .popular-card:hover {
   transform: translateY(-4px);
-  background: #b22222;
+  background: #780606;
   color: #fff;
   box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
@@ -121,17 +121,16 @@ html, body {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(237, 233, 233, 0.65); /* Dark overlay */
+  background: rgba(237, 233, 233, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease-in-out;
-  backdrop-filter: blur(3px); /* Modern blur */
+  backdrop-filter: blur(3px);
 }
-
 .modal-content {
-  background: #fdfdfd; /* Very light grey for readability */
+  background: #fdfdfd;
   padding: 35px 30px;
   border-radius: 14px;
   width: 450px;
@@ -139,24 +138,20 @@ html, body {
   text-align: center;
   animation: scaleIn 0.3s ease-in-out;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  border-top: 6px solid #b22222; /* Accent red */
+  border-top: 6px solid #b22222;
 }
-
 .modal-content h2 {
   margin-bottom: 15px;
   font-size: 1.6rem;
   font-weight: 600;
-  color: #b22222; /* NeoBank Red */
+  color: #b22222;
 }
-
 .modal-content p {
   margin-bottom: 25px;
   font-size: 1rem;
-  color: #2c2c2c; /* Dark grey text */
+  color: #2c2c2c;
   line-height: 1.6;
 }
-
-/* ================= Buttons ================= */
 .close-btn,
 .proceed-btn {
   padding: 10px 20px;
@@ -168,64 +163,47 @@ html, body {
   margin: 5px;
   font-size: 0.95rem;
 }
-
 .close-btn {
   background: #e74c3c;
   color: #fff;
   box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
 }
-
 .close-btn:hover {
-  background: #c0392b;
+  background: #780606;
   transform: translateY(-2px);
 }
-
 .proceed-btn {
-  background: #b22222; /* NeoBank Red */
+  background: #b22222;
   color: #fff;
   box-shadow: 0 4px 10px rgba(178, 34, 34, 0.3);
 }
-
 .proceed-btn:hover {
-  background: #8b1a1a;
+  background: #780606;
   transform: translateY(-2px);
 }
 
 /* ================= Animations ================= */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes scaleIn {
   from { transform: scale(0.9); opacity: 0; }
   to { transform: scale(1); opacity: 1; }
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* Footer */
+/* ================= Footer ================= */
 .footer-container {
   position: relative;
   left: 0;
   right: 0;
-  background: #ffffff;       /* White Background */
-  color: #333333;            /* Dark text for readability */
+  background: #ffffff;
+  color: #333333;
   padding: 50px 20px 20px;
   margin-top: 60px;
   font-size: 0.95rem;
-  box-sizing: border-box;    /* Prevents padding overflow */
+  box-sizing: border-box;
 }
-
 .footer-top {
   display: flex;
   flex-wrap: wrap;
@@ -233,14 +211,11 @@ html, body {
   gap: 40px;
   margin-bottom: 30px;
 }
-
 .footer-company {
   flex: 1 1 220px;
   text-align: left;
 }
-
 .footer-logo {
-  
   width: 50px;
   height: 50px;
   display: inline-flex;
@@ -248,56 +223,47 @@ html, body {
   justify-content: center;
   margin-bottom: 10px;
 }
-
 .footer-company h2 {
   margin: 5px 0;
   font-size: 1.5rem;
-  color: #b22222;  /* Red title */
+  color: #b22222;
 }
-
 .footer-company p {
   font-size: 0.95rem;
-  color: #555555;  /* Dark grey text */
+  color: #555555;
   line-height: 1.5;
 }
-
 .footer-links h3,
 .footer-contact h3,
 .footer-socials h3,
 .footer-support h3 {
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #b22222; /* Red Headings */
+  color: #b22222;
 }
-
 .footer-links ul,
 .footer-support ul {
   list-style: none;
   padding: 0;
 }
-
 .footer-links li,
 .footer-support li {
   margin-bottom: 8px;
 }
-
 .footer-links a,
 .footer-support a {
-  color: #333333;  /* Dark links */
+  color: #333333;
   text-decoration: none;
   transition: color 0.3s;
 }
-
 .footer-links a:hover,
 .footer-support a:hover {
-  color: #b22222;
+  color: #780606;
 }
-
 .footer-contact p {
   margin: 5px 0;
   color: #555555;
 }
-
 .footer-socials span {
   font-size: 1.4rem;
   margin-right: 12px;
@@ -305,12 +271,10 @@ html, body {
   color: #333333;
   transition: transform 0.3s, color 0.3s;
 }
-
 .footer-socials span:hover {
   transform: scale(1.2);
-  color: #b22222;
+  color: #780606;
 }
-
 .footer-bottom {
   border-top: 1px solid #ddd;
   padding-top: 18px;
@@ -321,28 +285,52 @@ html, body {
   font-size: 0.85rem;
   color: #666666;
 }
-
 .footer-legal a {
   color: #666666;
   text-decoration: none;
   margin-left: 8px;
   transition: color 0.3s;
 }
-
 .footer-legal a:hover {
-  color: #b22222;
+  color: #780606;
   text-decoration: underline;
 }
-
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
     gap: 25px;
   }
-
   .footer-bottom {
     flex-direction: column;
     gap: 8px;
     text-align: center;
   }
+}
+
+/* ================= Settings Section ================= */
+.settings-main-heading {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #900603;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+.settings-main-heading:hover {
+  color: #780606;
+}
+.settings-sub-heading {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #900603;
+  transition: color 0.3s ease;
+}
+.settings-sub-heading:hover {
+  color: #780606;
+}
+.settings-paragraph {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 12px;
+  line-height: 1.6;
 }

@@ -99,7 +99,7 @@ function ActiveLoanCard() {
     navigate('/view-loan-statement');
   }
   return (
-    <div className="container my-4">
+    <div className="m-4">
       <div className="card shadow rounded-4 border-0 w-100">
         <div className="card-body p-4">
           {/* Header */}
@@ -115,8 +115,8 @@ function ActiveLoanCard() {
               <span className="small fw-medium">Active</span>
             </div> */}
             <div className="d-flex align-items-center gap-2 bg-light px-3 py-1 rounded-pill">
-              <CheckCircle size={16} color="#950606de" />
-              <span className="small fw-medium" style={{ color: "#950606" }}>
+              <CheckCircle size={16} color="#900603" />
+              <span className="small fw-medium" style={{ color: "#900603" }}>
                 Active
               </span>
             </div>
@@ -128,7 +128,7 @@ function ActiveLoanCard() {
               <div className="d-flex align-items-center gap-3 mb-4">
                 <div
                   className="p-2 rounded"
-                  style={{ backgroundColor: "#950505" }} // light tint of your custom red
+                  style={{ backgroundColor: "#900503" }} // light tint of your custom red
                 >
                   <Home size={24} color="#ffc107" />
                 </div>
@@ -170,7 +170,7 @@ function ActiveLoanCard() {
                   <div
                     className="progress-bar"
                     role="progressbar"
-                    style={{ width: "25%", backgroundColor: "#950606" }}
+                    style={{ width: "25%", backgroundColor: "#900603" }}
                   ></div>
                 </div>
                 <div className="d-flex justify-content-between small text-muted mt-2">
@@ -182,7 +182,7 @@ function ActiveLoanCard() {
               <div className="d-flex gap-3">
                 <button
                   className="btn text-white fw-medium flex-fill background"
-                  style={{ backgroundColor: "#950606" }}
+                  style={{ backgroundColor: "#900603" }}
                 >
                   Make Payment
                 </button>
@@ -192,16 +192,16 @@ function ActiveLoanCard() {
                 <button
                   className="btn fw-medium flex-fill"
                   style={{
-                    borderColor: "#950606",
-                    color: "#950606",
+                    borderColor: "#900603",
+                    color: "#900603",
                   }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = "#950606";
+                    e.currentTarget.style.backgroundColor = "#900603";
                     e.currentTarget.style.color = "#fff";
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.backgroundColor = "transparent";
-                    e.currentTarget.style.color = "#950606";
+                    e.currentTarget.style.color = "#900603";
                   }}
                   onClick={() => handleStatement()}
                 >

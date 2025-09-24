@@ -70,7 +70,10 @@ const NEFTFormPage = () => {
     <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center bg-light py-5">
       <Card className="shadow-lg p-5 rounded-4" style={{ maxWidth: "1200px", width: "170%" }}>
         <Card.Body>
-          <h1 className="text-center mb-4">NEFT Transfer</h1>
+       <h1 className="text-center mb-4 text-danger fw-bold fs-3">
+  NEFT Transfer
+</h1>
+
           <Form onSubmit={handleSubmit}>
             {/* Beneficiary Name */}
             <Form.Group className="fw-bold mb-3">
@@ -170,13 +173,23 @@ const NEFTFormPage = () => {
               />
             </Form.Group>
 
-            <div className="d-flex justify-end gap-3 mt-4">
-              <Button variant="outline-secondary" size="lg" onClick={() => navigate(-1)}>
-                Cancel
-              </Button>
-              <Button variant="danger" size="lg" type="submit">
-                Transfer
-              </Button>
+             <div className="d-grid gap-4 mt-4">
+<Button 
+    size="lg" 
+    type="submit"
+    style={{ backgroundColor: "#950606", borderColor: "#950606", color: "white" }}
+  >
+    Submit NEFT
+  </Button>
+
+  <Button
+    size="lg"
+    onClick={() => navigate(-1)}
+    style={{ backgroundColor: "#950606", borderColor: "#950606", color: "white" }}
+  >
+     Back
+  </Button>
+
             </div>
 
             {submitted && <Alert variant="success" className="mt-4">✅ NEFT Transfer submitted successfully!</Alert>}

@@ -58,7 +58,7 @@ const ImpsForm = () => {
 
       <Card className="shadow-lg p-5 rounded-4" style={{ maxWidth: "1000px", width: "170%" }}>
         <Card.Body>
-          <h1 className="text-center mb-6">IMPS Transfer</h1>
+          <h1 className="text-center mb-4 text-danger fw-bold fs-3">IMPS Transfer</h1>
 
 
 
@@ -164,7 +164,7 @@ const ImpsForm = () => {
     onClick={() => navigate(-1)}
     style={{ backgroundColor: "#950606", borderColor: "#950606", color: "white" }}
   >
-    ← Back
+   Back
   </Button>
 </div>
 

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
 import Navbar from "./component/Navbar";
+import Footer from "./component/Footer";
 
 
 // Dashboard
@@ -12,7 +13,7 @@ import HomePage from "./pages/dashboard/HomePage";
 import AddMoney from "./pages/dashboard/AddMoney";
 import SendMoneyDashboard from "./pages/dashboard/SendMoney";
 import PayBills from "./pages/dashboard/PayBills";
-import Investments from "./pages/dashboard/Investments";
+
 
 // MyAccounts Pages
 import MyAccounts from "./pages/MyAccount/MyAccounts";
@@ -34,7 +35,7 @@ import BusinessLoanForm from "./pages/LOAN/BusinessLoanForm";
 import ViewLoanStatement from "./pages/LOAN/ViewLoanStatement";
 
 // Services & Deposits Pages
-import Services from "./pages/Services";
+import Services from "./pages/Services/Services";
 import DepositsPage from "./pages/Deposits/DepositsPage";
 import FixedDepositForm from "./pages/Deposits/FixedDepositForm";
 import RDPage from "./pages/Deposits/RDPage";
@@ -69,7 +70,7 @@ import ApplyNewCard from "./pages/cards/ApplyNewCard";
 
 // Complaint & Feedback
 import ComplaintFeedback from "./pages/Complaint & Feedback/ComplaintFeedback";
-import LiveChat from "./pages/Complaint & Feedback/LiveChat";
+
 import EmailSupport from "./pages/Complaint & Feedback/EmailSupport";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -95,7 +96,7 @@ const App=()=>{
         <Route path="/add-money" element={<AddMoney />} />
         <Route path="/send-money" element={<SendMoneyDashboard />} />
         <Route path="/pay-bills" element={<PayBills />} />
-        <Route path="/investments" element={<Investments />} />
+        
 
         {/* My Accounts */}
         <Route path="/myAccount" element={<MyAccounts />} />
@@ -156,9 +157,9 @@ const App=()=>{
 
         {/* Complaint & Feedback */}
         <Route path="/complaintfeedback" element={<ComplaintFeedback />} />
-        <Route path="/live-chat" element={<LiveChat />} />
         <Route path="/email-support" element={<EmailSupport />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 };

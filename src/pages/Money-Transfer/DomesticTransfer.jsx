@@ -47,12 +47,13 @@ const DomesticTransfer = () => {
         </div>
 
         {/* Title */}
-        <h1 className="fw-bold display-5 text-dark mb-3">Domestic Transfers</h1>
+        <h2 className="fw-bold fs-2 text-dark">Domestic Transfers</h2>
 
         {/* Description */}
-        <p className="text-muted fs-5 mb-4" style={{ maxWidth: "600px" }}>
-          Choose from NEFT, IMPS, RTGS, or UPI for sending money within India
-        </p>
+       <p className="text-muted small mb-5" style={{ lineHeight: "1.6" }}>
+      Choose from NEFT, IMPS, RTGS, or UPI for sending money within India
+    </p>
+
 
         {/* Transfer Buttons */}
         <Row className="g-4 w-100" style={{ maxWidth: "500px" }}>
@@ -105,7 +106,7 @@ const DomesticTransfer = () => {
             borderRadius: "25px",
           }}
         >
-          ← Back
+           Back
         </Button>
       </Card>
     </Container>

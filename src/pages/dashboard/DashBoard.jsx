@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowDownLeft, ArrowUpRight, CreditCard, PiggyBank, Wallet } from "lucide-react";
@@ -11,15 +9,17 @@ const DashBoard = () => {
     { label: "Send Money", color: "bg-primary", icon: "✈️", path: "/send-money" },
     { label: "Pay Bills", color: "bg-success", icon: "📱", path: "/pay-bills" },
     { label: "Add Money", color: "bg-purple", icon: "➕", path: "/add-money" },
-    { label: "Investments", color: "bg-warning", icon: "📈", path: "/investments" },
-    { label: "Fixed Deposit", color: "bg-pink", icon: "🐷", path: "/fixed-deposit" },
+    { label: "Investments", color: "bg-warning", icon: "📈", path: "/investment" },
+    { label: "Fixed Deposit", color: "bg-pink", icon: "🐷", path: "/deposit" },
     { label: "Cards", color: "bg-info", icon: "💳", path: "/cards" },
   ];
 
   return (
-    <div className="container-fluid py-4 bg-light min-vh-100">
+    // ✅ Navbar se chipakane ke liye "pt-0 mt-0" aur padding hata diya
+    <div className="bg-light min-vh-100 m-0 p-0">
 
-      <div className="card text-white mb-4 shadow" style={{ backgroundColor: "#950606" }}>
+      {/* Header Card */}
+      <div className="card text-white mb-4 shadow rounded-0" style={{ backgroundColor: "#950606" }}>
         <div className="card-body d-flex justify-content-between align-items-center">
           <div>
             <h1 className="h3 fw-bold">Welcome Back, PoonamSingh!</h1>
@@ -32,7 +32,8 @@ const DashBoard = () => {
         </div>
       </div>
 
-      <div className="card mb-4 shadow">
+      {/* Quick Actions */}
+      <div className="card mb-4 shadow rounded-0">
         <div className="card-body">
           <h5 className="fw-bold">Quick Actions</h5>
           <p className="text-muted mb-4 fw-semibold">Frequently used banking services</p>
@@ -41,11 +42,11 @@ const DashBoard = () => {
               <div key={i} className="col-6 col-md-4 col-lg-2">
                 <div
                   onClick={() => navigate(item.path)}
-                  className="border rounded text-center p-3 h-100 d-flex flex-column align-items-center justify-content-center shadow-sm hover-shadow cursor-pointer"
+                  className="border rounded text-center p-3 h-100 d-flex flex-column align-items-center justify-content-center shadow-sm"
                   style={{ cursor: "pointer" }}
                 >
                   <div
-                    className={`rounded-circle d-flex align-items-center justify-content-center text-white mb-2 shadow`}
+                    className={`rounded-circle d-flex align-items-center justify-content-center text-white mb-2 shadow ${item.color}`}
                     style={{ width: "48px", height: "48px" }}
                   >
                     <span>{item.icon}</span>
@@ -58,8 +59,8 @@ const DashBoard = () => {
         </div>
       </div>
 
-      <div className="row g-4">
-     
+      {/* Accounts & Transactions */}
+      <div className="row g-4 mx-0">
         <div className="col-lg-6">
           <div className="card shadow h-100">
             <div className="card-body">
@@ -70,10 +71,7 @@ const DashBoard = () => {
                 { title: "Current Account", type: "Current Account", number: "****5678", balance: "₹48,280.25", icon: <CreditCard className="text-primary" /> },
                 { title: "Fixed Deposit", type: "Fixed Deposit", number: "****9012", balance: "₹2,00,000.00", icon: <PiggyBank className="text-danger" /> },
               ].map((acc, i) => (
-                <div
-                  key={i}
-                  className="d-flex justify-content-between align-items-center border rounded p-3 mb-3"
-                >
+                <div key={i} className="d-flex justify-content-between align-items-center border rounded p-3 mb-3">
                   <div className="d-flex align-items-center">
                     <div className="rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style={{ width: "40px", height: "40px" }}>
                       {acc.icon}
@@ -102,10 +100,7 @@ const DashBoard = () => {
                 { label: "Electricity Bill", type: "Utilities", amount: "-₹1,200.00", date: "2025-01-08", color: "text-danger", icon: <ArrowUpRight />, iconBg: "bg-danger bg-opacity-10" },
                 { label: "Investment Returns", type: "Investment", amount: "+₹5,000.00", date: "2025-01-07", color: "text-success", icon: <ArrowDownLeft />, iconBg: "bg-success bg-opacity-10" },
               ].map((tx, i) => (
-                <div
-                  key={i}
-                  className="d-flex justify-content-between align-items-center border rounded p-3 mb-3"
-                >
+                <div key={i} className="d-flex justify-content-between align-items-center border rounded p-3 mb-3">
                   <div className="d-flex align-items-center">
                     <div className={`rounded-circle d-flex align-items-center justify-content-center me-3 ${tx.iconBg}`} style={{ width: "40px", height: "40px" }}>
                       {tx.icon}
@@ -126,8 +121,8 @@ const DashBoard = () => {
         </div>
       </div>
 
-   
-      <div className="row g-4 mt-2">
+      {/* Extra Widgets */}
+      <div className="row g-4 mx-0 mt-2">
         <div className="col-md-4">
           <div className="card shadow h-100 text-center">
             <div className="card-body">
@@ -161,4 +156,3 @@ const DashBoard = () => {
 };
 
 export default DashBoard;
-

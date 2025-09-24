@@ -15,12 +15,8 @@ export default function KYCForm() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const [captchaNum1, setCaptchaNum1] = useState(
-    Math.floor(Math.random() * 10) + 1
-  );
-  const [captchaNum2, setCaptchaNum2] = useState(
-    Math.floor(Math.random() * 10) + 1
-  );
+  const [captchaNum1, setCaptchaNum1] = useState(Math.floor(Math.random() * 10) + 1);
+  const [captchaNum2, setCaptchaNum2] = useState(Math.floor(Math.random() * 10) + 1);
 
   const webcamRef = useRef(null);
   const sigCanvas = useRef(null);
@@ -39,7 +35,6 @@ export default function KYCForm() {
     }
     if (parseInt(verificationAnswer) !== captchaNum1 * captchaNum2) {
       setError("Captcha answer is incorrect.");
-      // regenerate captcha
       setCaptchaNum1(Math.floor(Math.random() * 10) + 1);
       setCaptchaNum2(Math.floor(Math.random() * 10) + 1);
       setVerificationAnswer("");
@@ -100,12 +95,12 @@ export default function KYCForm() {
 
   return (
     <div
-      className="container py-5 d-flex justify-content-center"
-      style={{ backgroundColor: "#f9f4f0", minHeight: "100vh" }}
+      className="w-100 py-5 d-flex justify-content-center"
+      style={{ backgroundColor: "#ffffff", minHeight: "100vh" }} // Outer background white
     >
       <div
         className="row w-100 shadow-lg rounded-3"
-        style={{ maxWidth: "900px", backgroundColor: "#fff" }}
+        style={{ maxWidth: "900px", backgroundColor: "#fff" }} // Form box background
       >
         {/* Left Side - Branding */}
         <div

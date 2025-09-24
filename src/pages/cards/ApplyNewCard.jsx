@@ -1,3 +1,6 @@
+
+
+
 import React, { useState } from "react";
 import "../cards/NewCardForm.css";
 
@@ -38,11 +41,11 @@ function ApplyNewCard() {
   const renderDebitFields = () => (
     <>
       <div className="form-group">
-        <label>Bank Account Number:</label>
+        <label lassName="label">Bank Account Number:</label>
         <input type="text" name="accountNumber" value={formData.accountNumber} onChange={handleChange} required />
       </div>
       <div className="form-group">
-        <label>Account Type:</label>
+        <label lassName="label">Account Type:</label>
         <select name="accountType" value={formData.accountType} onChange={handleChange} required>
           <option value="">-- Select --</option>
           <option value="Savings">Savings</option>
@@ -50,7 +53,7 @@ function ApplyNewCard() {
         </select>
       </div>
       <div className="form-group">
-        <label>Branch Name:</label>
+        <label lassName="label">Branch Name:</label>
         <input type="text" name="branch" value={formData.branch} onChange={handleChange} required />
       </div>
     </>
@@ -59,11 +62,11 @@ function ApplyNewCard() {
   const renderCreditFields = () => (
     <>
       <div className="form-group">
-        <label>Annual Income:</label>
+        <label className="label">Annual Income:</label>
         <input type="number" name="income" value={formData.income} onChange={handleChange} required />
       </div>
       <div className="form-group">
-        <label>Employment Type:</label>
+        <label className="label">Employment Type:</label>
         <select name="employment" value={formData.employment} onChange={handleChange} required>
           <option value="">-- Select --</option>
           <option value="Salaried">Salaried</option>
@@ -73,15 +76,15 @@ function ApplyNewCard() {
         </select>
       </div>
       <div className="form-group">
-        <label>PAN Number:</label>
+        <label className="label">PAN Number:</label>
         <input type="text" name="pan" value={formData.pan} onChange={handleChange} required />
       </div>
       <div className="form-group">
-        <label>Aadhaar Number (Optional):</label>
+        <label className="label">Aadhaar Number (Optional):</label>
         <input type="text" name="aadhaar" value={formData.aadhaar} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>CIBIL Score:</label>
+        <label className="label">CIBIL Score:</label>
         <input
           type="number"
           name="cibil"
@@ -93,11 +96,11 @@ function ApplyNewCard() {
         />
       </div>
       <div className="form-group">
-        <label>Credit Limit Required (Optional):</label>
+        <label className="label">Credit Limit Required (Optional):</label>
         <input type="number" name="creditLimit" value={formData.creditLimit} onChange={handleChange} />
       </div>
       <div className="form-group">
-        <label>Existing Credit Card Holder?</label>
+        <label className="label">Existing Credit Card Holder?</label>
         <select name="existingCard" value={formData.existingCard} onChange={handleChange}>
           <option value="">-- Select --</option>
           <option value="Yes">Yes</option>
@@ -109,10 +112,12 @@ function ApplyNewCard() {
 
   return (
     <div className="cards-container">
-      <h2>Cards Application</h2>
+    <h1 className="text-center mb-4 fs-2 font-bold" style={{ color: "#950606" }}>
+  {selectedCard ? `Apply for ${selectedCard}` : "Choose a Card to Apply"}
+</h1>
 
       {!selectedCard ? (
-        <div className="card-options">
+        <div className="card-options d-flex justify-content-center gap-3 flex-wrap " style={{ color: "#950606" }}>
           <button className="apply-btn credit" onClick={() => setSelectedCard("Credit Card")}>
             Apply for Credit Card
           </button>
@@ -122,27 +127,27 @@ function ApplyNewCard() {
         </div>
       ) : (
         <form className="apply-form" onSubmit={handleSubmit}>
-          <h3>Apply for {selectedCard}</h3>
+          {/* <h3 className="mb-4">Apply for {selectedCard}</h3> */}
 
           {/* Common Fields */}
           <div className="form-group">
-            <label>Full Name:</label>
+            <label className="label">Full Name:</label>
             <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Email:</label>
+            <label className="label">Email:</label>
             <input type="email" name="email" value={formData.email} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Phone Number:</label>
+            <label className="label">Phone Number:</label>
             <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Date of Birth:</label>
+            <label className="label">Date of Birth:</label>
             <input type="date" name="dob" value={formData.dob} onChange={handleChange} required />
           </div>
           <div className="form-group">
-            <label>Address:</label>
+            <label className="label">Address:</label>
             <textarea name="address" value={formData.address} onChange={handleChange} required></textarea>
           </div>
 
@@ -151,12 +156,12 @@ function ApplyNewCard() {
           {selectedCard === "Credit Card" && renderCreditFields()}
 
           {/* Form Buttons */}
-          <div className="form-buttons">
+          <div className="form-buttons d-flex justify-content-center gap-3 mt-4">
             <button type="button" className="cancel-btn" onClick={() => setSelectedCard("")}>
               Cancel
             </button>
             <button type="submit" className={`submit-btn ${selectedCard.toLowerCase().replace(" ", "-")}`}>
-              Submit Application
+              Submit
             </button>
           </div>
         </form>

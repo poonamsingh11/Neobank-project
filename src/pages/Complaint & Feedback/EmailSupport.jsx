@@ -27,28 +27,15 @@ function EmailSupport() {
   };
 
   return (
-    <Container fluid className="p-0 bg-light">
-      {/* 🔴 Header Strip with Axis Bank Color */}
-      <div style={{ backgroundColor: "#A50034", padding: "30px 20px" }}>
-        <Container>
-          <div className="d-flex justify-content-between align-items-center">
-            {/* Back link */}
-            <a
-              href="/complaint"
-              className="text-decoration-none"
-              style={{ color: "white", fontWeight: "500" }}
-            >
-            </a>
-
-            {/* Page Header */}
-            <div className="text-center flex-grow-1">
-              <h1 className="fw-bold mb-1 text-white">Neo Bank Email Support</h1>
-              <p className="mb-0" style={{ color: "rgba(255,255,255,0.85)" }}>
-                We value your feedback and are committed to resolving your concerns promptly. <br />
-                Choose your preferred way to reach us.
-              </p>
-            </div>
-          </div>
+    <div className="w-100">
+      {/* 🔴 Header Full Width */}
+      <div className="w-full bg-[#900603] py-4">
+        <Container className="text-center text-white">
+          <h1 className="text-white">Neo Bank Email Support</h1>
+          <p className="text-white">
+            We value your feedback and are committed to resolving your concerns promptly. <br />
+            Choose your preferred way to reach us.
+          </p>
         </Container>
       </div>
 
@@ -243,7 +230,7 @@ function EmailSupport() {
           </Col>
         </Row>
       </Container>
-    </Container>
+    </div>
   );
 }
 
